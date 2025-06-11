@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me - Muhammad Jamal Matloob</title>
+    <link rel="icon" href="Logo.ico" type="image/x-icon">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Inter', sans-serif; /* Modern font */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* Dark Theme */
+        body.dark-theme {
+            background-color: #1a1a1a; /* Dark Black */
+            color: #e0e0e0; /* Light Gray */
+        }
+
+        body.dark-theme a {
+            color: #e0e0e0;
+        }
+
+        /* Light Theme */
+        body.light-theme {
+            background-color: #f4f4f4; /* Light Gray */
+            color: #333; /* Dark Gray */
+        }
+
+        body.light-theme a {
+            color: #333;
+        }
+
+        /* Header Styles - Consistent with Home Page */
+        header {
+            background-color: #222; /* Darker Gray */
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        body.light-theme header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo a {
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #e74c3c; /* Red */
+            transition: color 0.3s ease;
+        }
+
+        body.light-theme .logo a {
+            color: #c0392b; /* Darker red for light theme */
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 5px;
+            color: #e0e0e0;
+        }
+
+        body.light-theme .nav-links a {
+            color: #555;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px; /* Thicker underline */
+            background-color: #e74c3c;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #e74c3c;
+        }
+
+        /* Mobile Menu Toggle - Consistent with Home Page */
+        .menu-toggle {
+            display: none; /* Hidden by default */
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #e0e0e0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        body.light-theme .menu-toggle {
+            color: #333;
+        }
+
+        .menu-toggle:hover {
+            color: #e74c3c;
+        }
+
+        /* Theme Toggle Button - Consistent with Home Page */
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #e0e0e0;
+            transition: color 0.3s ease;
+            margin-left: 20px; /* Space from nav links */
+        }
+
+        body.light-theme .theme-toggle {
+            color: #333;
+        }
+
+        .theme-toggle:hover {
+            color: #e74c3c;
+        }
+
+        /* Main Content Styles */
+        main {
+            padding-top: 100px; /* Adjust for fixed header */
+        }
+
+        /* Contact Section - Consistent with Home Page Sections */
+        .contact-section {
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: 100px auto 40px auto; /* Adjust margin-top for fixed header */
+            text-align: center;
+            background-color: #2a2a2a; /* Dark Gray */
+            border-radius: 12px; /* Consistent rounded corners */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Consistent shadow */
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        body.light-theme .contact-section {
+            background-color: #fff;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-section h2 {
+            font-size: 2.8rem; /* Consistent heading size */
+            margin-bottom: 40px;
+            color: #e74c3c; /* Red */
+            position: relative;
+            animation: slideInDown 1s ease-out; /* Add animation */
+        }
+
+        .contact-section h2::after {
+            content: '';
+            position: absolute;
+            width: 100px; /* Longer underline */
+            height: 4px; /* Thicker underline */
+            background-color: #e74c3c;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .info-item {
+            background-color: #333;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+            flex: 1 1 calc(33% - 40px); /* Approx 3 items per row */
+            min-width: 250px;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow to transition */
+        }
+
+        body.light-theme .info-item {
+            background-color: #eee;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-item:hover {
+            transform: translateY(-10px);
+            background-color: #444;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6); /* More pronounced shadow on hover */
+        }
+
+        body.light-theme .info-item:hover {
+            background-color: #ddd;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-item i {
+            font-size: 3.5rem; /* Slightly larger icon */
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        .info-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #e0e0e0;
+        }
+
+        body.light-theme .info-item h3 {
+            color: #333;
+        }
+
+        .info-item p {
+            font-size: 1.1rem;
+            margin: 0;
+            color: #bbb;
+        }
+
+        body.light-theme .info-item p {
+            color: #555;
+        }
+
+        .contact-form-container {
+            background-color: #333;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        body.light-theme .contact-form-container {
+            background-color: #eee;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form-container h3 {
+            font-size: 2rem;
+            color: #e74c3c;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #e0e0e0;
+        }
+
+        body.light-theme .form-group label {
+            color: #333;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: calc(100% - 24px); /* Adjusted for 12px padding on each side */
+            padding: 12px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: #444;
+            color: #e0e0e0;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow to transition */
+        }
+
+        body.light-theme .form-group input,
+        body.light-theme .form-group textarea {
+            border: 1px solid #ccc;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #e74c3c;
+            outline: none;
+            box-shadow: 0 0 8px rgba(231, 76, 60, 0.5);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow to transition */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .submit-btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.5); /* More pronounced shadow on hover */
+        }
+
+        /* Footer Styles - Consistent with Home Page */
+        footer {
+            background-color: #222;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 30px 20px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        body.light-theme footer {
+            background-color: #fff;
+            color: #333;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            font-size: 2.2rem; /* Larger social icons */
+            color: #e0e0e0;
+            margin: 0 15px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        body.light-theme .social-icon {
+            color: #333;
+        }
+
+        .social-icon:hover {
+            color: #e74c3c;
+            transform: translateY(-5px); /* More pronounced hover */
+        }
+
+        footer p {
+            margin: 5px 0;
+            color: #bbb;
+        }
+        body.light-theme footer p {
+            color: #666;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Hide desktop nav links */
+                flex-direction: column;
+                position: absolute;
+                top: 70px; /* Below header */
+                left: 0;
+                width: 100%;
+                background-color: #222; /* Matches header background */
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+                padding: 20px 0;
+                border-bottom-left-radius: 12px;
+                border-bottom-right-radius: 12px;
+                animation: slideDown 0.3s ease-out forwards; /* Slide-down animation */
+            }
+
+            body.light-theme .nav-links {
+                background-color: #fff;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex; /* Show when active */
+            }
+
+            .nav-links li {
+                margin: 15px 0; /* Vertical spacing for menu items */
+            }
+
+            .nav-links a {
+                padding: 10px 0;
+                display: block;
+                text-align: center;
+                font-size: 1.2rem;
+            }
+
+            .menu-toggle {
+                display: block; /* Show hamburger icon on mobile/tablet */
+            }
+
+            /* Adjust header for mobile */
+            header nav {
+                justify-content: space-between; /* Space out logo and toggle */
+            }
+
+            .theme-toggle {
+                margin-left: 0; /* Remove extra margin on mobile */
+            }
+
+            .contact-section {
+                padding: 60px 15px; /* Adjusted padding for smaller screens */
+                margin-top: 80px; /* Adjusted top margin for fixed header */
+            }
+
+            .contact-section h2 {
+                font-size: 2.2rem; /* Smaller heading on mobile */
+            }
+
+            .contact-info {
+                flex-direction: column; /* Stack contact info items vertically */
+                align-items: center;
+            }
+
+            .info-item {
+                flex: 1 1 90%; /* Take up more width on small screens */
+                min-width: unset;
+                width: 100%;
+            }
+
+            .contact-form-container {
+                padding: 30px; /* Adjusted padding for form on smaller screens */
+            }
+
+            .form-group input[type="text"],
+            .form-group input[type="email"],
+            .form-group textarea {
+                width: calc(100% - 20px); /* Adjust for padding on smaller screens */
+            }
+
+            @keyframes slideDown {
+                from { transform: translateY(-100%); opacity: 0; }
+                to { transform: translateY(0); opacity: 1; }
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">Jamal's Portfolio</a>
+            </div>
+            <button id="menu-toggle" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle">
+                <i class="fas fa-sun"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-section animate">
+            <h2>Get In Touch</h2>
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Phone</h3>
+                    <p>+92 322 4122 066</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>your.email@example.com</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>Lahore, Punjab, Pakistan</p>
+                </div>
+            </div>
+
+            <div class="contact-form-container">
+                <h3>Send Me a Message</h3>
+                <form action="#" method="POST" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://wa.me/923224122066" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.linkedin.com/in/muhammad-jamal-matloob-326299328" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+        </div>
+        <p>Contact: +92 322 4122 066</p>
+        <p>&copy; 2025 Muhammad Jamal Matloob. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const body = document.body;
+
+            // Load theme preference from localStorage
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                body.className = savedTheme;
+                updateThemeToggleIcon(savedTheme);
+            } else {
+                body.classList.add('dark-theme');
+                updateThemeToggleIcon('dark-theme');
+            }
+
+            // Theme Toggle Functionality
+            themeToggle.addEventListener('click', () => {
+                if (body.classList.contains('dark-theme')) {
+                    body.classList.remove('dark-theme');
+                    body.classList.add('light-theme');
+                    localStorage.setItem('theme', 'light-theme');
+                    updateThemeToggleIcon('light-theme');
+                } else {
+                    body.classList.remove('light-theme');
+                    body.classList.add('dark-theme');
+                    localStorage.setItem('theme', 'dark-theme');
+                    updateThemeToggleIcon('dark-theme');
+                }
+            });
+
+            function updateThemeToggleIcon(currentTheme) {
+                if (currentTheme === 'dark-theme') {
+                    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                } else {
+                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                }
+            }
+
+            // Mobile Menu Toggle Functionality
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                if (navLinks.classList.contains('active')) {
+                    menuToggle.innerHTML = '<i class="fas fa-times"></i>'; // Change to close icon
+                } else {
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>'; // Change back to hamburger
+                }
+            });
+
+            // Close mobile menu when a link is clicked
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+
+            // Intersection Observer for animations on scroll
+            const contactSection = document.querySelector('.contact-section');
+            const infoItems = document.querySelectorAll('.info-item');
+            const contactFormContainer = document.querySelector('.contact-form-container');
+
+            const options = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            // Observe the main contact section
+            observer.observe(contactSection);
+
+            // Staggered animation for info items
+            infoItems.forEach((item, index) => {
+                item.style.transitionDelay = `${index * 0.1}s`; // Staggered delay
+                observer.observe(item); // Observe individual info items
+            });
+
+            // Observe the contact form container
+            contactFormContainer.style.transitionDelay = `${infoItems.length * 0.1 + 0.1}s`; // Delay after info items
+            observer.observe(contactFormContainer);
+
+            // Dynamically add animation classes to the stylesheet
+            const styleSheet = document.styleSheets[0];
+
+            styleSheet.insertRule(`
+                .contact-section.animate {
+                    animation: fadeIn 1s ease-out forwards;
+                }
+            `, styleSheet.cssRules.length);
+
+            styleSheet.insertRule(`
+                .info-item, .contact-form-container {
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+                }
+            `, styleSheet.cssRules.length);
+
+            styleSheet.insertRule(`
+                .contact-section.animate .info-item,
+                .contact-section.animate .contact-form-container {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            `, styleSheet.cssRules.length);
+
+            // Form submission handling (no alerts)
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                if (name === '' || email === '' || message === '') {
+                    console.log('Error: Please fill in all required fields.');
+                    // In a real app, display a custom message box here
+                    return;
+                }
+
+                if (!/\S+@\S+\.\S+/.test(email)) {
+                    console.log('Error: Please enter a valid email address.');
+                    // In a real app, display a custom message box here
+                    return;
+                }
+
+                console.log('Form Submitted!', { name, email, subject: document.getElementById('subject').value, message });
+                // In a real application, you'd send this data to a server using fetch() or XMLHttpRequest
+                this.reset(); // Clear the form
+                console.log('Thank you for your message! I will get back to you shortly.');
+            });
+        });
+    </script>
+</body>
+</html>
