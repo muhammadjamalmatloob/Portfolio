@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Jamal Matloob - Portfolio</title>
+    <link rel="icon" href="Logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Modern font */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* Dark Theme */
+        body.dark-theme {
+            background-color: #1a1a1a;
+            /* Dark Black */
+            color: #e0e0e0;
+            /* Light Gray */
+        }
+
+        body.dark-theme a {
+            color: #e0e0e0;
+        }
+
+        /* Light Theme */
+        body.light-theme {
+            background-color: #f4f4f4;
+            /* Light Gray */
+            color: #333;
+            /* Dark Gray */
+        }
+
+        body.light-theme a {
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #222;
+            /* Darker Gray */
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        body.light-theme header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo a {
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #e74c3c;
+            /* Red */
+            transition: color 0.3s ease;
+        }
+
+        body.light-theme .logo a {
+            color: #c0392b;
+            /* Darker red for light theme */
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 5px;
+            color: #e0e0e0;
+        }
+
+        body.light-theme .nav-links a {
+            color: #555;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            /* Thicker underline */
+            background-color: #e74c3c;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #e74c3c;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            /* Hidden by default */
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #e0e0e0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        body.light-theme .menu-toggle {
+            color: #333;
+        }
+
+        .menu-toggle:hover {
+            color: #e74c3c;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #e0e0e0;
+            transition: color 0.3s ease;
+            margin-left: 20px;
+            /* Space from nav links */
+        }
+
+        body.light-theme .theme-toggle {
+            color: #333;
+        }
+
+        .theme-toggle:hover {
+            color: #e74c3c;
+        }
+
+        /* Main Content Styles */
+        main {
+            padding-top: 100px;
+            /* Adjust for fixed header */
+        }
+
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            text-align: center;
+            background-color: #2a2a2a;
+            /* Dark Gray */
+            border-radius: 12px;
+            /* Slightly more rounded corners */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        body.light-theme .section {
+            background-color: #fff;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 40px;
+            color: #e74c3c;
+            /* Red */
+            position: relative;
+            animation: slideInDown 1s ease-out;
+            /* Add animation */
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            /* Longer underline */
+            height: 4px;
+            /* Thicker underline */
+            background-color: #e74c3c;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 90vh;
+            /* Taller hero section */
+            padding: 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            /* Gradient background */
+            color: #e0e0e0;
+            text-align: center;
+            box-shadow: none;
+            border-radius: 0;
+            /* No rounded corners on hero */
+        }
+
+        body.light-theme .hero-section {
+            background: linear-gradient(135deg, #f4f4f4 0%, #e0e0e0 100%);
+            color: #333;
+        }
+
+        .profile-picture-container {
+            width: 200px;
+            /* Larger profile picture */
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border: 5px solid #e74c3c;
+            /* Solid border with accent color */
+
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 30px rgba(231, 76, 60, 0.8);
+            }
+
+            100% {
+                box-shadow: 0 0 60px rgba(231, 76, 60, 1);
+            }
+        }
+
+        .profile-picture {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-section h1 {
+            font-size: 4rem;
+            /* Larger heading */
+            margin-bottom: 15px;
+            color: #e74c3c;
+            animation: slideInUp 1s ease-out;
+        }
+
+        .introduction {
+            font-size: 1.4rem;
+            /* Larger text */
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out 0.5s forwards;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 25px;
+            /* More space between buttons */
+            justify-content: center;
+            animation: zoomIn 1s ease-out 1s;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 35px;
+            /* Larger padding */
+            border-radius: 8px;
+            /* More rounded buttons */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .primary-btn {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        .primary-btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-7px);
+            /* More pronounced hover */
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.5);
+        }
+
+        .secondary-btn {
+            background-color: transparent;
+            border: 2px solid #e74c3c;
+            color: #e74c3c;
+        }
+
+        .secondary-btn:hover {
+            background-color: #e74c3c;
+            color: #fff;
+            transform: translateY(-7px);
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.5);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            /* Larger min-width for skills */
+            gap: 35px;
+            /* More space */
+            margin-top: 40px;
+        }
+
+        .skill-item {
+            background-color: #333;
+            /* Consistent item background */
+            padding: 35px;
+            /* More padding */
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body.light-theme .skill-item {
+            background-color: #eee;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-12px);
+            /* More pronounced hover */
+            background-color: #444;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        body.light-theme .skill-item:hover {
+            background-color: #ddd;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-item i {
+            font-size: 4rem;
+            /* Larger icons */
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+
+        .skill-item h3 {
+            font-size: 1.5rem;
+            /* Larger text */
+            margin: 0;
+            color: #e0e0e0;
+        }
+
+        body.light-theme .skill-item h3 {
+            color: #333;
+        }
+
+        /* Experience Section (Non-Timeline) */
+        .timeline {
+            /* Renamed from timeline to experiences-grid for clarity if not using timeline */
+            display: grid;
+            grid-template-columns: 1fr;
+            /* Single column */
+            gap: 30px;
+            /* Space between experience blocks */
+            margin: 0 auto;
+            max-width: 800px;
+            /* Max width for single column */
+            padding: 30px 0;
+            /* Vertical padding */
+            
+        }
+
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            /* Stack content */
+            align-items: center;
+            /* Align content to the left */
+            position: relative;
+            margin-bottom: 0;
+            width: 100%;
+            /* Remove extra margin from original timeline */
+        }
+
+        .timeline-content {
+            background-color: #333;
+            padding: 30px;
+            /* More padding */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            width: 80%;
+            /* Take full available width */
+            text-align: left;
+            /* Ensure text is left-aligned */
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body.light-theme .timeline-content {
+            background-color: #eee;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-content h3 {
+            color: #e74c3c;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.6rem;
+        }
+
+        .timeline-date {
+            font-size: 1rem;
+            color: #bbb;
+            margin-bottom: 15px;
+        }
+
+        body.light-theme .timeline-date {
+            color: #666;
+        }
+
+        .timeline-content ul {
+            list-style: disc;
+            /* Use standard disc bullets */
+            padding-left: 20px;
+            /* Indent bullets */
+            margin: 0;
+            text-align: left;
+        }
+
+        .timeline-content ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 0;
+            /* Remove custom padding */
+        }
+
+        .timeline-content ul li::before {
+            content: none;
+            /* Remove custom bullets */
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .education-item {
+            background-color: #333;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body.light-theme .education-item {
+            background-color: #eee;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .education-item:hover {
+            transform: translateY(-10px);
+            background-color: #444;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        body.light-theme .education-item:hover {
+            background-color: #ddd;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .education-item h3 {
+            color: #e74c3c;
+            margin-top: 0;
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .education-item p {
+            margin: 5px 0;
+            color: #e0e0e0;
+        }
+
+        body.light-theme .education-item p {
+            color: #555;
+        }
+
+        /* Languages, Certificates, Interests - Similar Grid Styles */
+        .languages-grid,
+        .certificates-grid,
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .language-item,
+        .certificate-item,
+        .interest-item {
+            background-color: #333;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body.light-theme .language-item,
+        body.light-theme .certificate-item,
+        body.light-theme .interest-item {
+            background-color: #eee;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .language-item:hover,
+        .certificate-item:hover,
+        .interest-item:hover {
+            transform: translateY(-10px);
+            background-color: #444;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        body.light-theme .language-item:hover,
+        body.light-theme .certificate-item:hover,
+        body.light-theme .interest-item:hover {
+            background-color: #ddd;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .interest-item i {
+            font-size: 3.5rem;
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        .certificate-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #e74c3c;
+            /* Small border for certificate images */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .certificate-item img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .pdf-links {
+            display: flex;
+            justify-content: flex-end; /* Align to the right */
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .pdf-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .pdf-link i {
+            margin-right: 8px;
+        }
+
+        .pdf-link:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+        }
+        /* Footer Styles */
+        footer {
+            background-color: #222;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 30px 20px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        body.light-theme footer {
+            background-color: #fff;
+            color: #333;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            font-size: 2.2rem;
+            /* Larger social icons */
+            color: #e0e0e0;
+            margin: 0 15px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        body.light-theme .social-icon {
+            color: #333;
+        }
+
+        .social-icon:hover {
+            color: #e74c3c;
+            transform: translateY(-5px);
+            /* More pronounced hover */
+        }
+
+        footer p {
+            margin: 5px 0;
+            color: #bbb;
+        }
+
+        body.light-theme footer p {
+            color: #666;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                /* Hide desktop nav links */
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                /* Below header */
+                left: 0;
+                width: 100%;
+                background-color: #222;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+                padding: 20px 0;
+                border-bottom-left-radius: 12px;
+                border-bottom-right-radius: 12px;
+                animation: slideDown 0.3s ease-out forwards;
+            }
+
+            body.light-theme .nav-links {
+                background-color: #fff;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .nav-links a {
+                padding: 10px 0;
+                display: block;
+                text-align: center;
+                font-size: 1.2rem;
+            }
+
+            .menu-toggle {
+                display: block;
+                /* Show hamburger icon */
+            }
+
+            /* Adjust header for mobile */
+            header nav {
+                justify-content: space-between;
+                /* Space out logo and toggle */
+            }
+
+            .theme-toggle {
+                margin-left: 0;
+                /* Remove extra margin on mobile */
+            }
+
+            .hero-section h1 {
+                font-size: 3rem;
+            }
+
+            .introduction {
+                font-size: 1.2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 90%;
+                /* Wider buttons on mobile */
+                max-width: 300px;
+            }
+
+            .section h2 {
+                font-size: 2.2rem;
+            }
+
+            .skills-grid,
+            .education-grid,
+            .languages-grid,
+            .certificates-grid,
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Mobile experience item adjustments */
+            .timeline {
+                padding: 20px 15px;
+                /* Adjust padding for mobile */
+            }
+
+            .timeline-item {
+                align-items: center;
+                /* Center items on mobile */
+                margin-left: 0;
+            }
+
+            .timeline-content {
+                width: 100%;
+                /* Full width on mobile */
+                padding: 20px;
+                margin-left: 0;
+            }
+
+            .timeline-content ul {
+                padding-left: 20px;
+            }
+
+            @keyframes slideDown {
+                from {
+                    transform: translateY(-100%);
+                    opacity: 0;
+                }
+
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body class="dark-theme">
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#">Jamal's Portfolio</a>
+            </div>
+            <button id="menu-toggle" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle">
+                <i class="fas fa-sun"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <div class="profile-picture-container">
+                    <img src="Profile.jpeg" alt="Muhammad Jamal Matloob" class="profile-picture"
+                        onerror="this.src='https://placehold.co/200x200/e74c3c/FFFFFF?text=MJ';" />
+                </div>
+                <h1>Muhammad Jamal Matloob</h1>
+                <p class="introduction">
+                    Currently studying Computer Science at UET Lahore, I have a foundation in Web Development, Game Development (Unity), and C# (WinForms/Krypton Forms). My passion lies in exploring AI and Machine Learning, and I'm actively seeking a paid internship to contribute my abilities and gain real-world experience.
+                </p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn primary-btn">Get in Touch</a>
+                    <a href="Resume.pdf" class="btn secondary-btn" target="_blank">View Resume</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fas fa-globe"></i>
+                    <h3>Web Development</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-css3-alt"></i>
+                    <h3>CSS</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-python"></i>
+                    <h3>Python</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-terminal"></i>
+                    <h3>C</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-file-code"></i>
+                    <h3>C++</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-hashtag"></i>
+                    <h3>C#</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-windows"></i>
+                    <h3>Windows Forms</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-unity"></i>
+                    <h3>Unity Game Developer</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-database"></i>
+                    <h3>MySQL Database</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <h2>Experience</h2>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Freelance Front-End Developer <br>Self-Employed</h3>
+                        <p class="timeline-date">May 2025 - Present</p>
+                        <ul>
+                            <li>Designed and built custom websites for small businesses and individuals.</li>
+                            <li>Managed client communications, project timelines, and deployment processes.</li>
+                            <li>Focused on modern web standards and optimized for cross-browser compatibility.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="section">
+            <h2>Education</h2>
+            <div class="education-grid">
+                <div class="education-item">
+                    <h3>Bachelor of Science in Computer Science</h3>
+                    <p>University of Engineering & Technology, Lahore</p>
+                    <p>Duration: 2024 - Present</p>
+                    <p><strong>CGPA: 3.7/4.0</strong></p>
+                </div>
+                <div class="education-item">
+                    <h3>Intermediate (FSc Pre-Engineering)</h3>
+                    <p>Concordia Group of Colleges, Walton Campus</p>
+                    <p>Duration: 2022 - 2024</p>
+                    <p><strong>Grade: A+</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="languages" class="section">
+            <h2>Languages</h2>
+            <div class="languages-grid">
+                <div class="language-item">
+                    <h3>English</h3>
+                    <p>Intermediate</p>
+                </div>
+                <div class="language-item">
+                    <h3>Urdu</h3>
+                    <p>Native</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="certificates" class="section">
+            <h2>Certificates</h2>
+            <div class="certificates-grid">
+                <div class="certificate-item">
+                    <img src="HackerRankBasic.png"
+                        alt="SQL Basic Certificate"
+                        onerror="this.src='https://placehold.co/300x200/e74c3c/FFFFFF?text=Web+Dev+Cert';" />
+                    <h3>SQL Basic Certificate</h3>
+                    <p>Certificate by HackerRank</p>
+                    <p>Issued: 25 March 2025</p>
+                    <div class="pdf-links">
+                            <a href="sql_basic certificate.pdf" target="_blank" class="pdf-link">
+                                <i class="fas fa-file-pdf"></i>PDF
+                            </a>
+                    </div>
+                    <div class="pdf-links">
+                            <a href="https://www.hackerrank.com/certificates/56bde6b5984d" target="_blank" class="pdf-link">
+                                <i class="fas fa-key"></i>Credentials
+                            </a>
+                    </div>
+                </div>
+                <div class="certificate-item">
+                    <img src="HackerRankAdvance.png"
+                        alt="SQL Advance Certificate"
+                        onerror="this.src='https://placehold.co/300x200/e74c3c/FFFFFF?text=Web+Dev+Cert';" />
+                    <h3>SQL Advance Certificate</h3>
+                    <p>Certificate by HackerRank</p>
+                    <p>Issued: 29 April 2025</p>
+                    <div class="pdf-links">
+                            <a href="sql_advanced certificate.pdf" target="_blank" class="pdf-link">
+                                <i class="fas fa-file-pdf"></i>PDF
+                            </a>
+                    </div>
+                    <div class="pdf-links">
+                            <a href="https://www.hackerrank.com/certificates/519f1b4384e1" target="_blank" class="pdf-link">
+                                <i class="fas fa-key"></i>Credentials
+                            </a>
+                    </div>
+                </div>
+                <div class="certificate-item">
+                    <img src="ACM_Coding_Competition.png"
+                        alt="ACM Coding Competition"
+                        onerror="this.src='https://placehold.co/300x200/e74c3c/FFFFFF?text=Web+Dev+Cert';" />
+                    <h3>ACM Coding Competition</h3>
+                    <p>Certificate by ACM UET</p>
+                    <p>Issued: 20 March 2025</p>
+                    <div class="pdf-links">
+                            <a href="ACM coding competition certificate.pdf" target="_blank" class="pdf-link">
+                                <i class="fas fa-file-pdf"></i>PDF
+                            </a>
+                    </div>
+                </div>
+                <div class="certificate-item">
+                    <img src="ITEC_Certificate.png"
+                        alt="ACM Coding Competition"
+                        onerror="this.src='https://placehold.co/300x200/e74c3c/FFFFFF?text=Web+Dev+Cert';" />
+                    <h3>ITEC AI Web Hackathon Competition</h3>
+                    <p>Certificate by ITEC UET</p>
+                    <p>Issued: 15 February 2025</p>
+                    <div class="pdf-links">
+                            <a href="107_Muhammad Jamal Matloob.pdf" target="_blank" class="pdf-link">
+                                <i class="fas fa-file-pdf"></i>PDF
+                            </a>
+                    </div>
+                </div>
+        </section>
+
+        <section id="interests" class="section">
+            <h2>Interests</h2>
+            <div class="interests-grid">
+                <div class="interest-item">
+                    <i class="fas fa-book-reader"></i>
+                    <h3>Reading Tech Blogs</h3>
+                </div>
+                <div class="interest-item">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Competitive Gaming</h3>
+                </div>
+                <div class="interest-item">
+                    <i class="fas fa-baseball-ball"></i>
+                    <h3>Cricket</h3>
+                </div>
+                <div class="interest-item">
+                    <i class="fas fa-code"></i>
+                    <h3>Open Source Contributions</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://wa.me/923224122066" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.linkedin.com/in/muhammad-jamal-matloob-326299328" target="_blank"
+                class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+        </div>
+        <p>Contact: +92 322 4122 066</p>
+        <p>&copy; 2025 Muhammad Jamal Matloob. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const body = document.body;
+
+            // Load theme preference from localStorage
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                body.className = savedTheme;
+                updateThemeToggleIcon(savedTheme);
+            } else {
+                body.classList.add('dark-theme');
+                updateThemeToggleIcon('dark-theme');
+            }
+
+            // Theme Toggle Functionality
+            themeToggle.addEventListener('click', () => {
+                if (body.classList.contains('dark-theme')) {
+                    body.classList.remove('dark-theme');
+                    body.classList.add('light-theme');
+                    localStorage.setItem('theme', 'light-theme');
+                    updateThemeToggleIcon('light-theme');
+                } else {
+                    body.classList.remove('light-theme');
+                    body.classList.add('dark-theme');
+                    localStorage.setItem('theme', 'dark-theme');
+                    updateThemeToggleIcon('dark-theme');
+                }
+            });
+
+            function updateThemeToggleIcon(currentTheme) {
+                if (currentTheme === 'dark-theme') {
+                    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                } else {
+                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                }
+            }
+
+            // Mobile Menu Toggle Functionality
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                if (navLinks.classList.contains('active')) {
+                    menuToggle.innerHTML = '<i class="fas fa-times"></i>'; // Change to close icon
+                } else {
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>'; // Change back to hamburger
+                }
+            });
+
+            // Close mobile menu when a link is clicked
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+
+            // Intersection Observer for animations on scroll
+            const sections = document.querySelectorAll('.section');
+            const options = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Dynamically add animation classes to the stylesheet
+            const styleSheet = document.styleSheets[0];
+
+            styleSheet.insertRule(`
+                .section.animate {
+                    animation: fadeIn 1s ease-out forwards;
+                }
+            `, styleSheet.cssRules.length);
+
+            styleSheet.insertRule(`
+                .skill-item, .education-item, .language-item, .certificate-item, .interest-item {
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+                }
+            `, styleSheet.cssRules.length);
+
+            styleSheet.insertRule(`
+                .section.animate .skill-item,
+                .section.animate .education-item,
+                .section.animate .language-item,
+                .section.animate .certificate-item,
+                .section.animate .interest-item {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            `, styleSheet.cssRules.length);
+
+            // Staggered animation for grid items within sections
+            sections.forEach(section => {
+                const gridItems = section.querySelectorAll('.skills-grid .skill-item, .education-grid .education-item, .languages-grid .language-item, .certificates-grid .certificate-item, .interests-grid .interest-item');
+                gridItems.forEach((item, index) => {
+                    item.style.transitionDelay = `${index * 0.1}s`;
+                });
+            });
+
+            // Staggered animation for experience items (formerly timeline items)
+            const experienceItems = document.querySelectorAll('.timeline-item'); // Still using .timeline-item for consistency
+            experienceItems.forEach((item, index) => {
+                item.style.opacity = 0;
+                item.style.transform = 'translateY(50px)';
+                item.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                item.style.transitionDelay = `${index * 0.2}s`;
+            });
+
+            const experienceObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            experienceItems.forEach(item => {
+                experienceObserver.observe(item);
+            });
+        });
+    </script>
+</body>
+
+</html>

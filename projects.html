@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects - Muhammad Jamal Matloob</title>
+    <link rel="icon" href="Logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Inter', sans-serif; /* Modern font */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* Dark Theme */
+        body.dark-theme {
+            background-color: #1a1a1a; /* Dark Black */
+            color: #e0e0e0; /* Light Gray */
+        }
+
+        body.dark-theme a {
+            color: #e0e0e0;
+        }
+
+        /* Light Theme */
+        body.light-theme {
+            background-color: #f4f4f4; /* Light Gray */
+            color: #333; /* Dark Gray */
+        }
+
+        body.light-theme a {
+            color: #333;
+        }
+
+        /* Header Styles - Consistent with Home Page */
+        header {
+            background-color: #222; /* Darker Gray */
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        body.light-theme header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo a {
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #e74c3c; /* Red */
+            transition: color 0.3s ease;
+        }
+
+        body.light-theme .logo a {
+            color: #c0392b; /* Darker red for light theme */
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 5px;
+            color: #e0e0e0;
+        }
+
+        body.light-theme .nav-links a {
+            color: #555;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px; /* Thicker underline */
+            background-color: #e74c3c;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #e74c3c;
+        }
+
+        /* Mobile Menu Toggle - Consistent with Home Page */
+        .menu-toggle {
+            display: none; /* Hidden by default */
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #e0e0e0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        body.light-theme .menu-toggle {
+            color: #333;
+        }
+
+        .menu-toggle:hover {
+            color: #e74c3c;
+        }
+
+        /* Theme Toggle Button - Consistent with Home Page */
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #e0e0e0;
+            transition: color 0.3s ease;
+            margin-left: 20px; /* Space from nav links */
+        }
+
+        body.light-theme .theme-toggle {
+            color: #333;
+        }
+
+        .theme-toggle:hover {
+            color: #e74c3c;
+        }
+
+        /* Main Content Styles */
+        main {
+            padding-top: 100px; /* Adjust for fixed header */
+        }
+
+        /* Projects Section - Consistent with Home Page Sections */
+        .projects-section {
+            padding: 80px 20px;
+            max-width: 900px; /* Adjusted max-width for single column projects */
+            margin: 100px auto 40px auto; /* Adjust margin-top for fixed header */
+            text-align: center;
+            background-color: #2a2a2a; /* Dark Gray */
+            border-radius: 12px; /* Consistent rounded corners */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Consistent shadow */
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        body.light-theme .projects-section {
+            background-color: #fff;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .projects-section h2 {
+            font-size: 2.8rem; /* Consistent heading size */
+            margin-bottom: 40px;
+            color: #e74c3c; /* Red */
+            position: relative;
+            animation: slideInDown 1s ease-out; /* Add animation */
+        }
+
+        .projects-section h2::after {
+            content: '';
+            position: absolute;
+            width: 100px; /* Longer underline */
+            height: 4px; /* Thicker underline */
+            background-color: #e74c3c;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Projects Grid - Single Column */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Force single column */
+            gap: 40px; /* Space between projects */
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background-color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            opacity: 0; /* For JavaScript animation */
+            transform: translateY(20px); /* For JavaScript animation */
+        }
+
+        body.light-theme .project-card {
+            background-color: #eee;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        body.light-theme .project-card:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 65%; /* Slightly taller images for impact */
+            object-fit: cover;
+            border-bottom: 3px solid #e74c3c;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            font-size: 1.8rem;
+            color: #e74c3c;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            font-size: 1rem;
+            color: #bbb;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        body.light-theme .project-content h3 {
+            color: #c0392b;
+        }
+
+        body.light-theme .project-content p {
+            color: #555;
+        }
+
+        .project-links {
+            display: flex;
+            justify-content: flex-end; /* Align to the right */
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .project-link i {
+            margin-right: 8px;
+        }
+
+        .project-link:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+        }
+
+        /* Footer Styles - Consistent with Home Page */
+        footer {
+            background-color: #222;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 30px 20px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        body.light-theme footer {
+            background-color: #fff;
+            color: #333;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            font-size: 2.2rem; /* Larger social icons */
+            color: #e0e0e0;
+            margin: 0 15px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        body.light-theme .social-icon {
+            color: #333;
+        }
+
+        .social-icon:hover {
+            color: #e74c3c;
+            transform: translateY(-5px); /* More pronounced hover */
+        }
+
+        footer p {
+            margin: 5px 0;
+            color: #bbb;
+        }
+        body.light-theme footer p {
+            color: #666;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Hide desktop nav links */
+                flex-direction: column;
+                position: absolute;
+                top: 70px; /* Below header */
+                left: 0;
+                width: 100%;
+                background-color: #222;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+                padding: 20px 0;
+                border-bottom-left-radius: 12px;
+                border-bottom-right-radius: 12px;
+                animation: slideDown 0.3s ease-out forwards;
+            }
+
+            body.light-theme .nav-links {
+                background-color: #fff;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .nav-links a {
+                padding: 10px 0;
+                display: block;
+                text-align: center;
+                font-size: 1.2rem;
+            }
+
+            .menu-toggle {
+                display: block; /* Show hamburger icon */
+            }
+
+            /* Adjust header for mobile */
+            header nav {
+                justify-content: space-between; /* Space out logo and toggle */
+            }
+
+            .theme-toggle {
+                margin-left: 0; /* Remove extra margin on mobile */
+            }
+
+            .projects-section {
+                padding: 60px 15px;
+                margin-top: 80px;
+            }
+
+            .projects-section h2 {
+                font-size: 2.2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr; /* Ensure single column on mobile */
+            }
+
+            .project-card img{
+                height: 40%;
+            }
+
+            @keyframes slideDown {
+                from { transform: translateY(-100%); opacity: 0; }
+                to { transform: translateY(0); opacity: 1; }
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">Jamal's Portfolio</a>
+            </div>
+            <button id="menu-toggle" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle">
+                <i class="fas fa-sun"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="projects-section animate">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="Educational_Website.jpg" alt="E-commerce Website" onerror="this.src='https://placehold.co/600x300/222222/FFFFFF?text=Project+1+Image';" />
+                    <div class="project-content">
+                        <h3>Educationl Website Frontend (Html, CSS, Javascript)</h3>
+                        <p>It is the frontend of an educational website built using Html, CSS and JavaScript. It is the project of my first semester course AICT (Application of Information and Communication Technology).</p>
+                        <div class="project-links">
+                            <a href="https://github.com/yourusername/ecommerce-project" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="Flappybird.png" alt="E-commerce Website" onerror="this.src='https://placehold.co/600x300/222222/FFFFFF?text=Project+1+Image';" />
+                    <div class="project-content">
+                        <h3>2D Unity Game (Flappy Bird)</h3>
+                        <p>It is a basic level 2D game developed in C#. Unity game engine is used in this game. A simple arcade game and my first step in the field of game development.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/yourusername/ecommerce-project" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="Byte_Brawl.jpg" alt="Task Management App" onerror="this.src='https://placehold.co/600x300/333333/FFFFFF?text=Project+2+Image';" />
+                    <div class="project-content">
+                        <h3>Windows Form Game (Byte Brawl)</h3>
+                        <p>This is a simple fight game with one player tank and one enemy tank. This is my project of OOP (Object Oriented Programming) course. All the OOP concepts like Inheritance, Encapsulation and Polymorphism are implemented in this game.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/yourusername/task-app" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="BankApp.jpg" alt="Personal Blog Platform" onerror="this.src='https://placehold.co/600x300/444444/FFFFFF?text=Project+3+Image';" />
+                    <div class="project-content">
+                        <h3>Windows Form App (Bank Managemet System) using MySQL</h3>
+                        <p>This is a comprehensive Bank Management System implemented using C# Windows Form (Kryton Form) and MySQL Database. It is the final project of our basic Database course.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/yourusername/blog-platform" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="FacultyApp.png" alt="Data Visualization Dashboard" onerror="this.src='https://placehold.co/600x300/555555/FFFFFF?text=Project+4+Image';" />
+                    <div class="project-content">
+                        <h3>Faculty Course Management (WinForm and MySQL)</h3>
+                        <p>A WinForm app implemented using C# Windows Form and MySQL Database. It is the Mid project of our basic Database course.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/yourusername/data-dashboard" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://wa.me/923224122066" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.linkedin.com/in/muhammad-jamal-matloob-326299328" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+        </div>
+        <p>Contact: +92 322 4122 066</p>
+        <p>&copy; 2025 Muhammad Jamal Matloob. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const body = document.body;
+
+            // Load theme preference from localStorage
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                body.className = savedTheme;
+                updateThemeToggleIcon(savedTheme);
+            } else {
+                body.classList.add('dark-theme');
+                updateThemeToggleIcon('dark-theme');
+            }
+
+            // Theme Toggle Functionality
+            themeToggle.addEventListener('click', () => {
+                if (body.classList.contains('dark-theme')) {
+                    body.classList.remove('dark-theme');
+                    body.classList.add('light-theme');
+                    localStorage.setItem('theme', 'light-theme');
+                    updateThemeToggleIcon('light-theme');
+                } else {
+                    body.classList.remove('light-theme');
+                    body.classList.add('dark-theme');
+                    localStorage.setItem('theme', 'dark-theme');
+                    updateThemeToggleIcon('dark-theme');
+                }
+            });
+
+            function updateThemeToggleIcon(currentTheme) {
+                if (currentTheme === 'dark-theme') {
+                    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                } else {
+                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                }
+            }
+
+            // Mobile Menu Toggle Functionality
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                if (navLinks.classList.contains('active')) {
+                    menuToggle.innerHTML = '<i class="fas fa-times"></i>'; // Change to close icon
+                } else {
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>'; // Change back to hamburger
+                }
+            });
+
+            // Close mobile menu when a link is clicked
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+
+            // Intersection Observer for animations on scroll
+            const projectsSection = document.querySelector('.projects-section');
+            const projectCards = document.querySelectorAll('.project-card');
+            const options = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            // Observe the main projects section for its animation
+            observer.observe(projectsSection);
+
+            // Staggered animation for project cards
+            projectCards.forEach((card, index) => {
+                card.style.transitionDelay = `${index * 0.1}s`; // Staggered delay
+                observer.observe(card); // Observe individual cards
+            });
+
+            // Dynamically add animation classes to a new stylesheet
+            const dynamicStyleSheet = document.createElement('style');
+            document.head.appendChild(dynamicStyleSheet);
+
+            // Add fadeIn animation for the main section
+            dynamicStyleSheet.sheet.insertRule(`
+                .projects-section.animate {
+                    animation: fadeIn 1s ease-out forwards;
+                }
+            `, dynamicStyleSheet.sheet.cssRules.length);
+
+            // Add initial state for project cards (hidden and slightly moved)
+            dynamicStyleSheet.sheet.insertRule(`
+                .project-card {
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+                }
+            `, dynamicStyleSheet.sheet.cssRules.length);
+
+            // Add animation state for project cards when 'animate' class is added to their parent section
+            dynamicStyleSheet.sheet.insertRule(`
+                .projects-section.animate .project-card {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            `, dynamicStyleSheet.sheet.cssRules.length);
+        });
+    </script>
+</body>
+</html>
