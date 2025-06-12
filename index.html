@@ -17,14 +17,18 @@
             transition: background-color 0.4s ease, color 0.4s ease;
         }
 
-        /* --- DARK THEME (UNCHANGED) --- */
+        /* --- DARK THEME --- */
         body.dark-theme {
             background-color: #1a1a1a;
             color: #e0e0e0;
         }
 
         body.dark-theme a {
-            color: #e0e0e0;
+            color: #e74c3c;
+        }
+        
+        body.dark-theme a:hover {
+            color: #c0392b;
         }
 
         body.dark-theme header {
@@ -48,12 +52,14 @@
             background-color: #e74c3c;
         }
 
-        body.dark-theme .menu-toggle {
+        body.dark-theme .menu-toggle,
+        body.dark-theme .theme-toggle {
             color: #e0e0e0;
         }
 
-        body.dark-theme .theme-toggle {
-            color: #e0e0e0;
+        body.dark-theme .menu-toggle:hover,
+        body.dark-theme .theme-toggle:hover {
+            color: #e74c3c;
         }
 
         body.dark-theme .hero-section {
@@ -155,44 +161,44 @@
             color: #e74c3c;
         }
 
-        /* --- NEW & IMPROVED LIGHT THEME --- */
+        /* --- LIGHT THEME --- */
         body.light-theme {
             background-color: #f8f9fa;
-            /* Off-white background */
             color: #212529;
-            /* Dark text for high contrast */
         }
 
         body.light-theme a {
-            color: #212529;
+            color: #3498db;
+        }
+        
+        body.light-theme a:hover {
+            color: #2980b9;
         }
 
         body.light-theme header {
             background-color: #2c3e50;
-            /* Dark blue-gray header */
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        body.light-theme .logo a,
-        body.light-theme .nav-links a:hover {
+        body.light-theme .logo a {
             color: #3498db;
-            /* New blue accent color */
         }
 
         body.light-theme .nav-links a {
             color: #ecf0f1;
-            /* Light text on dark header */
+        }
+
+        body.light-theme .nav-links a:hover {
+            color: #3498db;
         }
 
         body.light-theme .nav-links a::after {
             background-color: #3498db;
-            /* Blue accent underline */
         }
 
         body.light-theme .menu-toggle,
         body.light-theme .theme-toggle {
             color: #ecf0f1;
-            /* Light icons on dark header */
         }
 
         body.light-theme .menu-toggle:hover,
@@ -202,19 +208,16 @@
 
         body.light-theme .hero-section {
             background: #f8f9fa;
-            /* Match body background */
             color: #212529;
         }
 
         body.light-theme .profile-picture-container {
             border-color: #3498db;
-            /* Blue accent border */
             box-shadow: 0 0 30px rgba(52, 152, 219, 0.4);
         }
 
         body.light-theme .hero-section h1 {
             color: #3498db;
-            /* Blue accent heading */
         }
 
         body.light-theme .primary-btn {
@@ -224,7 +227,6 @@
 
         body.light-theme .primary-btn:hover {
             background-color: #2980b9;
-            /* Darker blue on hover */
             box-shadow: 0 8px 20px rgba(52, 152, 219, 0.5);
         }
 
@@ -241,35 +243,27 @@
 
         body.light-theme .section {
             background-color: #ffffff;
-            /* Pure white sections */
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            /* Softer, more pronounced shadow */
         }
 
         body.light-theme .section h2 {
             color: #3498db;
-            /* Blue accent for headings */
         }
 
         body.light-theme .section h2::after {
             background-color: #3498db;
-            /* Blue accent underline */
         }
 
         body.light-theme .skill-item {
             background-color: #f8f9fa;
-            /* Match body background for subtle contrast */
             border: 1px solid #e9ecef;
-            /* Add a light border */
         }
 
         body.light-theme .skill-item:hover {
             transform: translateY(-12px);
             background-color: #2c3e50;
-            /* Dark blue-gray on hover */
             box-shadow: 0 8px 25px rgba(44, 62, 80, 0.2);
             color: #ffffff;
-            /* White text on hover */
         }
 
         body.light-theme .skill-item:hover i,
@@ -279,12 +273,10 @@
 
         body.light-theme .skill-item i {
             color: #3498db;
-            /* Blue accent icon */
         }
 
         body.light-theme .skill-item h3 {
             color: #2c3e50;
-            /* Dark text for skill name */
         }
 
         body.light-theme .timeline-content,
@@ -303,33 +295,27 @@
 
         body.light-theme .timeline-date {
             color: #6c757d;
-            /* Softer date color */
         }
 
         body.light-theme footer {
             background-color: #2c3e50;
-            /* Dark blue-gray footer */
             color: #ecf0f1;
-            /* Light text */
         }
 
         body.light-theme footer p {
             color: #bdc3c7;
-            /* Lighter gray for copyright text */
         }
 
         body.light-theme .social-icon {
             color: #ecf0f1;
-            /* Light icons */
         }
 
         body.light-theme .social-icon:hover {
             color: #3498db;
-            /* Blue accent on hover */
         }
 
 
-        /* --- BASE STYLES (UNCHANGED) --- */
+        /* --- BASE HEADER & NAV STYLES --- */
         header {
             height: 70px;
             display: flex;
@@ -738,34 +724,15 @@
         .certificate-item,
         .interest-item {
             border-radius: 12px;
-            /* Smoother, more modern corners */
             transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             text-align: center;
             border: 1px solid transparent;
-            /* Prepare for hover effect in light theme */
-        }
-
-        /* --- 2. UNIQUE LAYOUT STYLES --- */
-        .skill-item {
-            padding: 35px;
-        }
-
-        .timeline-content,
-        .education-item,
-        .language-item,
-        .certificate-item,
-        .interest-item {
-            padding: 30px;
         }
 
         .timeline-content {
             text-align: left;
         }
 
-        /* Keep timeline content left-aligned */
-
-
-        /* --- 3. DARK THEME CONTAINER STYLES --- */
         body.dark-theme .skill-item,
         body.dark-theme .timeline-content,
         body.dark-theme .education-item,
@@ -783,12 +750,9 @@
         body.dark-theme .certificate-item:hover,
         body.dark-theme .interest-item:hover {
             background-color: #3e3e3e;
-            /* Unified lighter background on hover */
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
         }
 
-
-        /* --- 4. LIGHT THEME CONTAINER STYLES --- */
         body.light-theme .skill-item,
         body.light-theme .timeline-content,
         body.light-theme .education-item,
@@ -796,11 +760,8 @@
         body.light-theme .certificate-item,
         body.light-theme .interest-item {
             background-color: #f1f3f5;
-            /* Clean, light gray for better contrast */
             border-color: #dee2e6;
-            /* Subtle border to define the shape */
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
-            /* Softer shadow */
         }
 
         body.light-theme .timeline-content:hover,
@@ -809,30 +770,21 @@
         body.light-theme .certificate-item:hover,
         body.light-theme .interest-item:hover {
             border-color: #3498db;
-            /* Highlight with accent color on hover */
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-            /* Slightly stronger shadow */
         }
 
-        /* Special hover for skill-item to maintain the dark-background effect */
         body.light-theme .skill-item:hover {
             background-color: #2c3e50;
-            /* Dark blue-gray on hover */
             box-shadow: 0 8px 25px rgba(44, 62, 80, 0.2);
             border-color: #2c3e50;
-            /* Match border to the new background */
             color: #ffffff;
-            /* White text on hover */
         }
 
         body.light-theme .skill-item:hover i,
         body.light-theme .skill-item:hover h3 {
             color: #ffffff;
-            /* Ensure icon and heading also turn white */
         }
 
-
-        /* --- 5. UNIFIED HOVER TRANSFORMS --- */
         .timeline-content:hover,
         .education-item:hover,
         .language-item:hover,
@@ -843,10 +795,8 @@
 
         .skill-item:hover {
             transform: translateY(-12px);
-            /* Keep the slightly larger lift for skills */
         }
 
-        /* Animations & Responsive design are unchanged */
         @keyframes fadeIn {
             from {
                 opacity: 0
@@ -1009,13 +959,13 @@
     <header>
         <nav>
             <div class="logo">
-                <a href="#">Jamal's Portfolio</a>
+                <a href="index.html">Jamal's Portfolio</a>
             </div>
             <button id="menu-toggle" class="menu-toggle">
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+                <li><a href="index.html#home">Home</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="blog.html">Blog</a></li>

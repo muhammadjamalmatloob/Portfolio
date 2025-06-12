@@ -104,7 +104,6 @@
         body.dark-theme .project-link:hover {
             background-color: #c0392b;
             color: #fff;
-            /* This ensures the text stays white */
         }
 
         body.dark-theme footer {
@@ -129,9 +128,7 @@
         /* --- LIGHT THEME (Accent: Blue) --- */
         body.light-theme {
             background-color: #f8f9fa;
-            /* Off-white */
             color: #212529;
-            /* Dark text */
         }
 
         body.light-theme a {
@@ -144,7 +141,6 @@
 
         body.light-theme header {
             background-color: #2c3e50;
-            /* Dark blue-gray */
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -156,7 +152,6 @@
             color: #ecf0f1;
         }
 
-        /* Light text */
         body.light-theme .nav-links a:hover {
             color: #3498db;
         }
@@ -219,14 +214,11 @@
         body.light-theme .project-link:hover {
             background-color: #2980b9;
             color: #fff;
-            /* This ensures the text stays white */
         }
 
         body.light-theme footer {
             background-color: #2c3e50;
-            /* Dark blue-gray */
             color: #ecf0f1;
-            /* Light text */
             box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
         }
 
@@ -234,7 +226,6 @@
             color: #bdc3c7;
         }
 
-        /* Lighter gray */
         body.light-theme .social-icon {
             color: #ecf0f1;
         }
@@ -335,9 +326,7 @@
         .projects-section {
             padding: 80px 20px;
             max-width: 900px;
-            /* Restored narrower width for single column */
             margin: 100px auto 40px auto;
-            /* Restored original margin */
             text-align: center;
             border-radius: 12px;
             transition: background-color 0.4s ease, box-shadow 0.4s ease;
@@ -361,11 +350,10 @@
             border-radius: 2px;
         }
 
-        /* --- PROJECTS GRID & CARDS (Restored to single-column) --- */
+        /* --- PROJECTS GRID & CARDS --- */
         .projects-grid {
             display: grid;
             grid-template-columns: 1fr;
-            /* Restored single-column layout */
             gap: 40px;
             margin-top: 50px;
         }
@@ -389,7 +377,6 @@
             height: auto;
             object-fit: cover;
             border-bottom: 3px solid;
-            /* Color is set by theme */
             display: block;
         }
 
@@ -578,7 +565,7 @@
             <h2>My Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <img src="Educational_Website.jpg" alt="E-commerce Website"
+                    <img src="Educational_Website.jpg" alt="Educational Website"
                         onerror="this.src='https://placehold.co/600x400/222222/FFFFFF?text=Project+Image';" />
                     <div class="project-content">
                         <h3>Educational Website Frontend</h3>
@@ -594,7 +581,7 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="Flappybird.png" alt="E-commerce Website"
+                    <img src="Flappybird.png" alt="Flappy Bird Game"
                         onerror="this.src='https://placehold.co/600x400/222222/FFFFFF?text=Project+Image';" />
                     <div class="project-content">
                         <h3>2D Unity Game (Flappy Bird)</h3>
@@ -610,7 +597,7 @@
                 </div>
 
                 <div class="project-card">
-                    <img src="Byte_Brawl.jpg" alt="Task Management App"
+                    <img src="Byte_Brawl.jpg" alt="Byte Brawl Game"
                         onerror="this.src='https://placehold.co/600x400/333333/FFFFFF?text=Project+Image';" />
                     <div class="project-content">
                         <h3>Windows Form Game (Byte Brawl)</h3>
@@ -627,7 +614,7 @@
                 </div>
 
                 <div class="project-card">
-                    <img src="BankApp.jpg" alt="Personal Blog Platform"
+                    <img src="BankApp.jpg" alt="Bank Management System"
                         onerror="this.src='https://placehold.co/600x400/444444/FFFFFF?text=Project+Image';" />
                     <div class="project-content">
                         <h3>WinForm App (Bank Managemet System) using MySQL</h3>
@@ -643,7 +630,7 @@
                 </div>
 
                 <div class="project-card">
-                    <img src="FacultyApp.png" alt="Data Visualization Dashboard"
+                    <img src="FacultyApp.png" alt="Faculty Course Management App"
                         onerror="this.src='https.placehold.co/600x400/555555/FFFFFF?text=Project+Image';" />
                     <div class="project-content">
                         <h3>Faculty Course Management (WinForm and MySQL)</h3>
@@ -747,7 +734,6 @@
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // Use a more robust way to add the animation class
                         entry.target.style.opacity = '1';
                         entry.target.style.transform = 'translateY(0)';
                         observer.unobserve(entry.target);
@@ -757,8 +743,8 @@
 
             // Staggered animation for project cards
             projectCards.forEach((card, index) => {
-                card.style.transitionDelay = `${index * 0.1}s`; // Staggered delay
-                observer.observe(card); // Observe individual cards
+                card.style.transitionDelay = `${index * 0.1}s`;
+                observer.observe(card);
             });
         });
     </script>
