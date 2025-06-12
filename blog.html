@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,70 +11,291 @@
     <style>
         /* General Body Styles */
         body {
-            font-family: 'Inter', sans-serif; /* Modern font */
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
             transition: background-color 0.4s ease, color 0.4s ease;
         }
 
-        /* Dark Theme */
+        /* =================================== */
+        /* DARK THEME              */
+        /* =================================== */
         body.dark-theme {
-            background-color: #1a1a1a; /* Dark Black */
-            color: #e0e0e0; /* Light Gray */
-        }
-
-        body.dark-theme a {
+            background-color: #1a1a1a;
             color: #e0e0e0;
         }
 
-        /* Light Theme */
+        body.dark-theme a {
+            color: #e74c3c;
+        }
+
+        body.dark-theme a:hover {
+            color: #c0392b;
+        }
+
+        body.dark-theme header {
+            background-color: #222;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        body.dark-theme .logo a {
+            color: #e74c3c;
+        }
+
+        body.dark-theme .nav-links a {
+            color: #e0e0e0;
+        }
+
+        body.dark-theme .nav-links a:hover {
+            color: #e74c3c;
+        }
+
+        body.dark-theme .nav-links a::after {
+            background-color: #e74c3c;
+        }
+
+        body.dark-theme .menu-toggle,
+        body.dark-theme .theme-toggle {
+            color: #e0e0e0;
+        }
+
+        body.dark-theme .menu-toggle:hover,
+        body.dark-theme .theme-toggle:hover {
+            color: #e74c3c;
+        }
+
+        body.dark-theme .projects-section,
+        body.dark-theme .blog-section {
+            background-color: #2a2a2a;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        body.dark-theme .projects-section h2,
+        body.dark-theme .blog-section h2 {
+            color: #e74c3c;
+        }
+
+        body.dark-theme .projects-section h2::after,
+        body.dark-theme .blog-section h2::after {
+            background-color: #e74c3c;
+        }
+
+        body.dark-theme .project-card,
+        body.dark-theme .blog-post-card {
+            background-color: #333;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        body.dark-theme .project-card:hover,
+        body.dark-theme .blog-post-card:hover {
+            background-color: #3e3e3e;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        body.dark-theme .project-card img,
+        body.dark-theme .blog-post-card img {
+            border-bottom-color: #e74c3c;
+        }
+
+        body.dark-theme .project-content h3,
+        body.dark-theme .blog-content h3 {
+            color: #e74c3c;
+        }
+
+        body.dark-theme .project-content p,
+        body.dark-theme .blog-content p {
+            color: #bbb;
+        }
+
+        body.dark-theme .post-meta {
+            color: #888;
+        }
+
+        body.dark-theme .project-link {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        body.dark-theme .project-link:hover {
+            background-color: #c0392b;
+        }
+
+        body.dark-theme footer {
+            background-color: #222;
+            color: #e0e0e0;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        body.dark-theme footer p {
+            color: #bbb;
+        }
+
+        body.dark-theme .social-icon {
+            color: #e0e0e0;
+        }
+
+        body.dark-theme .social-icon:hover {
+            color: #e74c3c;
+        }
+
+
+        /* =================================== */
+        /* LIGHT THEME             */
+        /* =================================== */
         body.light-theme {
-            background-color: #f4f4f4; /* Light Gray */
-            color: #333; /* Dark Gray */
+            background-color: #f8f9fa;
+            color: #212529;
         }
 
         body.light-theme a {
-            color: #333;
+            color: #3498db;
         }
 
-        /* Header Styles - Consistent with Home Page and Contact Page */
+        body.light-theme a:hover {
+            color: #2980b9;
+        }
+
+        body.light-theme header {
+            background-color: #2c3e50;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-theme .logo a {
+            color: #3498db;
+        }
+
+        body.light-theme .nav-links a {
+            color: #ecf0f1;
+        }
+
+        body.light-theme .nav-links a:hover {
+            color: #3498db;
+        }
+
+        body.light-theme .nav-links a::after {
+            background-color: #3498db;
+        }
+
+        body.light-theme .menu-toggle,
+        body.light-theme .theme-toggle {
+            color: #ecf0f1;
+        }
+
+        body.light-theme .menu-toggle:hover,
+        body.light-theme .theme-toggle:hover {
+            color: #3498db;
+        }
+
+        body.light-theme .projects-section,
+        body.light-theme .blog-section {
+            background-color: #ffffff;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        body.light-theme .projects-section h2,
+        body.light-theme .blog-section h2 {
+            color: #3498db;
+        }
+
+        body.light-theme .projects-section h2::after,
+        body.light-theme .blog-section h2::after {
+            background-color: #3498db;
+        }
+
+        body.light-theme .project-card,
+        body.light-theme .blog-post-card {
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+        }
+
+        body.light-theme .project-card:hover,
+        body.light-theme .blog-post-card:hover {
+            border-color: #3498db;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        body.light-theme .project-card img,
+        body.light-theme .blog-post-card img {
+            border-bottom-color: #3498db;
+        }
+
+        body.light-theme .project-content h3,
+        body.light-theme .blog-content h3 {
+            color: #3498db;
+        }
+
+        body.light-theme .project-content p,
+        body.light-theme .blog-content p {
+            color: #555;
+        }
+
+        body.light-theme .post-meta {
+            color: #6c757d;
+        }
+
+        body.light-theme .project-link {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        body.light-theme .project-link:hover {
+            background-color: #2980b9;
+        }
+
+        body.light-theme footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-theme footer p {
+            color: #bdc3c7;
+        }
+
+        body.light-theme .social-icon {
+            color: #ecf0f1;
+        }
+
+        body.light-theme .social-icon:hover {
+            color: #3498db;
+        }
+
+
+        /* =================================== */
+        /* BASE & SHARED STYLES      */
+        /* =================================== */
+
+        /* --- HEADER & NAV --- */
         header {
-            background-color: #222; /* Darker Gray */
-            padding: 1rem 0;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            padding: 0;
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
             transition: background-color 0.4s ease, box-shadow 0.4s ease;
-        }
-
-        body.light-theme header {
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px; /* Added padding for consistency */
+            padding: 0 20px;
         }
 
         .logo a {
-            font-size: 2rem; /* Consistent font size */
+            font-size: 2rem;
             font-weight: bold;
             text-decoration: none;
-            color: #e74c3c; /* Red */
             transition: color 0.3s ease;
-        }
-
-        body.light-theme .logo a {
-            color: #c0392b; /* Darker red for light theme */
         }
 
         .nav-links {
@@ -93,19 +315,14 @@
             font-size: 1.1rem;
             position: relative;
             padding-bottom: 5px;
-            color: #e0e0e0; /* Light gray for nav links */
-        }
-
-        body.light-theme .nav-links a {
-            color: #555;
+            transition: color 0.3s ease;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
             width: 0;
-            height: 3px; /* Thicker underline */
-            background-color: #e74c3c;
+            height: 3px;
             bottom: 0;
             left: 0;
             transition: width 0.3s ease-in-out;
@@ -115,206 +332,157 @@
             width: 100%;
         }
 
-        .nav-links a:hover {
-            color: #e74c3c;
-        }
-
-        /* Mobile Menu Toggle - Consistent with Home Page */
         .menu-toggle {
-            display: none; /* Hidden by default for desktop */
+            display: none;
             background: none;
             border: none;
             font-size: 1.8rem;
-            color: #e0e0e0;
             cursor: pointer;
             transition: color 0.3s ease;
         }
 
-        body.light-theme .menu-toggle {
-            color: #333;
-        }
-
-        .menu-toggle:hover {
-            color: #e74c3c;
-        }
-
-        /* Theme Toggle Button - Consistent with Home Page */
         .theme-toggle {
             background: none;
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: #e0e0e0;
             transition: color 0.3s ease;
-            margin-left: 20px; /* Space from nav links */
+            margin-left: 20px;
         }
 
-        body.light-theme .theme-toggle {
-            color: #333;
-        }
-
-        .theme-toggle:hover {
-            color: #e74c3c;
-        }
-
-        /* Main Content Styles */
+        /* --- MAIN CONTENT & PAGE SECTIONS --- */
         main {
-            padding-top: 100px; /* Adjust for fixed header */
+            padding-top: 100px;
         }
 
-        /* Specific styles for the Blog Page - Consistent with Home Page Sections */
+        .projects-section,
         .blog-section {
             padding: 80px 20px;
-            max-width: 900px; /* Reduced max-width for single column */
-            margin: 100px auto 40px auto; /* Adjust margin-top for fixed header */
+            max-width: 900px;
+            margin: 100px auto 40px auto;
             text-align: center;
-            background-color: #2a2a2a; /* Dark Gray */
-            border-radius: 12px; /* Consistent rounded corners */
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Consistent shadow */
+            border-radius: 12px;
             transition: background-color 0.4s ease, box-shadow 0.4s ease;
         }
 
-        body.light-theme .blog-section {
-            background-color: #fff;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-        }
-
+        .projects-section h2,
         .blog-section h2 {
-            font-size: 2.8rem; /* Consistent heading size */
+            font-size: 2.8rem;
             margin-bottom: 40px;
-            color: #e74c3c; /* Red */
             position: relative;
-            animation: slideInDown 1s ease-out; /* Add animation */
+            animation: slideInDown 1s ease-out;
         }
 
+        .projects-section h2::after,
         .blog-section h2::after {
             content: '';
             position: absolute;
-            width: 100px; /* Longer underline */
-            height: 4px; /* Thicker underline */
-            background-color: #e74c3c;
+            width: 100px;
+            height: 4px;
             bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
             border-radius: 2px;
         }
 
+        /* --- PROJECT & BLOG CARDS --- */
+        .projects-grid,
         .blog-grid {
             display: grid;
-            grid-template-columns: 1fr; /* Single column layout */
-            gap: 40px; /* Spacing between posts */
+            grid-template-columns: 1fr;
+            gap: 40px;
             margin-top: 50px;
         }
 
+        .project-card,
         .blog-post-card {
-            background-color: #333;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
             text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-            opacity: 0; /* For JavaScript animation */
-            transform: translateY(20px); /* For JavaScript animation */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Pushes footer to bottom */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            border: 1px solid transparent;
         }
 
-        body.light-theme .blog-post-card {
-            background-color: #eee;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
+        .project-card:hover,
         .blog-post-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
         }
 
-        body.light-theme .blog-post-card:hover {
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-        }
-
+        .project-card img,
         .blog-post-card img {
             width: 100%;
-            height: 250px; /* Increased image height for better visual */
+            height: 250px;
             object-fit: cover;
-            border-bottom: 3px solid #e74c3c;
+            border-bottom: 3px solid;
+            display: block;
         }
 
+        .project-content,
         .blog-content {
             padding: 25px;
-            flex-grow: 1; /* Allows content to expand */
         }
 
+        .project-content h3,
         .blog-content h3 {
             font-size: 1.8rem;
-            color: #e74c3c;
             margin-top: 0;
             margin-bottom: 10px;
         }
 
-        .blog-content .post-meta {
-            font-size: 0.9rem;
-            color: #888;
-            margin-bottom: 15px;
-        }
-
-        body.light-theme .blog-content .post-meta {
-            color: #666;
-        }
-
+        .project-content p,
         .blog-content p {
             font-size: 1rem;
-            color: #bbb;
             line-height: 1.7;
             margin-bottom: 20px;
         }
 
-        body.light-theme .blog-content h3 {
-            color: #c0392b;
+        .post-meta {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
         }
 
-        body.light-theme .blog-content p {
-            color: #555;
-        }
-
+        /* --- BUTTONS --- */
+        .project-link,
         .linkedin-button {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #0077B5; /* LinkedIn Blue */
-            color: #fff;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow to transition */
-            margin-top: 10px; /* Spacing from description */
+            color: white;
+            /* All buttons have white text */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-link:hover,
+        .linkedin-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .project-link i,
+        .linkedin-button i {
+            margin-right: 8px;
+        }
+
+        /* Specific button colors */
+        .linkedin-button {
+            background-color: #0077B5;
+            /* LinkedIn Blue */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .linkedin-button:hover {
             background-color: #005582;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* More pronounced shadow on hover */
         }
 
-        .linkedin-button i {
-            margin-right: 8px;
-        }
 
-        /* Footer styles - Consistent with Home Page and Contact Page */
+        /* --- FOOTER --- */
         footer {
-            background-color: #222;
-            color: #e0e0e0;
             text-align: center;
             padding: 30px 20px;
-            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.4);
             transition: background-color 0.4s ease, box-shadow 0.4s ease;
-        }
-
-        body.light-theme footer {
-            background-color: #fff;
-            color: #333;
-            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .social-links {
@@ -322,122 +490,120 @@
         }
 
         .social-icon {
-            font-size: 2.2rem; /* Larger social icons */
-            color: #e0e0e0;
+            font-size: 2.2rem;
             margin: 0 15px;
+            text-decoration: none;
             transition: color 0.3s ease, transform 0.3s ease;
         }
 
-        body.light-theme .social-icon {
-            color: #333;
-        }
-
         .social-icon:hover {
-            color: #e74c3c;
-            transform: translateY(-5px); /* More pronounced hover */
+            transform: translateY(-5px);
         }
 
         footer p {
             margin: 5px 0;
-            font-size: 0.95rem;
-            color: #bbb;
         }
 
-        body.light-theme footer p {
-            color: #666;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideInUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
+        /* --- ANIMATIONS --- */
         @keyframes slideInDown {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(-50px);
+                opacity: 0
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1
+            }
         }
 
-        @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1
+            }
         }
 
-        /* Responsive Design */
+        /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 768px) {
             .nav-links {
-                display: none; /* Hide desktop nav links by default */
+                display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 70px; /* Position below header */
+                top: 70px;
                 left: 0;
                 width: 100%;
-                background-color: #222; /* Matches header background */
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
                 padding: 20px 0;
                 border-bottom-left-radius: 12px;
                 border-bottom-right-radius: 12px;
-                animation: slideDown 0.3s ease-out forwards; /* Slide-down animation */
+                animation: slideDown .3s ease-out forwards
+            }
+
+            body.dark-theme .nav-links {
+                background-color: #222;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, .4)
             }
 
             body.light-theme .nav-links {
-                background-color: #fff;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                background-color: #2c3e50;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, .1)
             }
 
             .nav-links.active {
-                display: flex; /* Show when active */
+                display: flex
             }
 
             .nav-links li {
-                margin: 15px 0; /* Vertical spacing for menu items */
+                margin: 15px 0
             }
 
             .nav-links a {
                 padding: 10px 0;
                 display: block;
                 text-align: center;
-                font-size: 1.2rem;
+                font-size: 1.2rem
             }
 
             .menu-toggle {
-                display: block; /* Show hamburger icon on mobile/tablet */
+                display: block
             }
 
-            /* Adjust header for mobile */
             header nav {
-                justify-content: space-between; /* Space out logo and toggle */
+                justify-content: space-between
             }
 
             .theme-toggle {
-                margin-left: 0; /* Remove extra margin on mobile */
+                margin-left: 0
             }
 
+            .projects-section,
             .blog-section {
-                padding: 60px 15px; /* Adjusted padding for smaller screens */
-                margin-top: 80px; /* Adjusted top margin for fixed header */
+                padding: 60px 15px;
+                margin-top: 80px;
             }
 
+            .projects-section h2,
             .blog-section h2 {
-                font-size: 2.2rem; /* Smaller heading on mobile */
+                font-size: 2.2rem
             }
 
+            .project-content h3,
             .blog-content h3 {
-                font-size: 1.5rem;
+                font-size: 1.5rem
             }
+        }
 
-            @keyframes slideDown {
-                from { transform: translateY(-100%); opacity: 0; }
-                to { transform: translateY(0); opacity: 1; }
-            }
+        .linkedin-button {
+            color: white;
         }
     </style>
 </head>
+
 <body class="dark-theme">
     <header>
         <nav>
@@ -466,54 +632,75 @@
 
                 <!-- Blog Post Card 1: Interactive Data Dashboard -->
                 <div class="blog-post-card">
-                    <img src="https://placehold.co/600x300/e74c3c/FFFFFF?text=Dashboard+Project" alt="Interactive Data Dashboard" onerror="this.src='https://placehold.co/600x300/e74c3c/FFFFFF?text=Dashboard+Mockup';" />
+                    <img src="https://placehold.co/600x300/e74c3c/FFFFFF?text=Dashboard+Project"
+                        alt="Interactive Data Dashboard"
+                        onerror="this.src='https://placehold.co/600x300/e74c3c/FFFFFF?text=Dashboard+Mockup';" />
                     <div class="blog-content">
                         <h3>Interactive Data Dashboard Completed!</h3>
                         <p class="post-meta">By Muhammad Jamal Matloob | June 5, 2025 | #DataScience</p>
                         <p>
-                            Thrilled to announce the completion of my latest project: an **Interactive Data Dashboard**! 🎉 This dashboard visualizes complex sales metrics in real-time, offering actionable insights at a glance. Built with **Python (Pandas, Dash)** and **JavaScript (D3.js)** for dynamic charting. It was a challenging but rewarding experience, pushing my skills in both backend data processing and frontend visualization.
+                            Thrilled to announce the completion of my latest project: an **Interactive Data Dashboard**!
+                            🎉 This dashboard visualizes complex sales metrics in real-time, offering actionable
+                            insights at a glance. Built with **Python (Pandas, Dash)** and **JavaScript (D3.js)** for
+                            dynamic charting. It was a challenging but rewarding experience, pushing my skills in both
+                            backend data processing and frontend visualization.
                         </p>
-                        <a href="https://www.linkedin.com/in/muhammad-jamal-matloob-326299328" target="_blank" class="linkedin-button">
-                            <i class="fab fa-linkedin"></i> View on LinkedIn
+                        <a href="https://www.linkedin.com/in/muhammad-jamal-matloob-326299328" target="_blank"
+                            class="linkedin-button">
+                            <font color="white"><i class="fab fa-linkedin"></i> View on LinkedIn</font>
                         </a>
                     </div>
                 </div>
 
                 <!-- Blog Post Card 2: The Evolution of Frontend Frameworks -->
                 <div class="blog-post-card">
-                    <img src="https://placehold.co/600x300/222222/FFFFFF?text=Frontend+Frameworks" alt="The Evolution of Frontend Frameworks" onerror="this.src='https://placehold.co/600x300/222222/FFFFFF?text=Blog+Post+1+Image';" />
+                    <img src="https://placehold.co/600x300/222222/FFFFFF?text=Frontend+Frameworks"
+                        alt="The Evolution of Frontend Frameworks"
+                        onerror="this.src='https://placehold.co/600x300/222222/FFFFFF?text=Blog+Post+1+Image';" />
                     <div class="blog-content">
                         <h3>The Evolution of Frontend Frameworks</h3>
                         <p class="post-meta">By Muhammad Jamal Matloob | June 1, 2025 | #WebDev</p>
-                        <p>A look back at how frontend development has transformed with the rise of React, Angular, and Vue, and what's next for the ecosystem and future trends in web development technologies.</p>
-                        <a href="https://www.linkedin.com/in/muhammad-jamal-matloob-326299328" target="_blank" class="linkedin-button">
-                            <i class="fab fa-linkedin"></i> View on LinkedIn
+                        <p>A look back at how frontend development has transformed with the rise of React, Angular, and
+                            Vue, and what's next for the ecosystem and future trends in web development technologies.
+                        </p>
+                        <a href="https://www.linkedin.com/in/muhammad-jamal-matloob-326299328" target="_blank"
+                            class="linkedin-button">
+                            <<font color="white"><i class="fab fa-linkedin"></i> View on LinkedIn</font>
                         </a>
                     </div>
                 </div>
 
                 <!-- Blog Post Card 3: Tips for Effective Problem Solving -->
                 <div class="blog-post-card">
-                    <img src="https://placehold.co/600x300/333333/FFFFFF?text=Problem+Solving+Tips" alt="Tips for Effective Problem Solving in Programming" onerror="this.src='https://placehold.co/600x300/333333/FFFFFF?text=Blog+Post+2+Image';" />
+                    <img src="https://placehold.co/600x300/333333/FFFFFF?text=Problem+Solving+Tips"
+                        alt="Tips for Effective Problem Solving in Programming"
+                        onerror="this.src='https://placehold.co/600x300/333333/FFFFFF?text=Blog+Post+2+Image';" />
                     <div class="blog-content">
                         <h3>Tips for Effective Problem Solving in Programming</h3>
                         <p class="post-meta">By Muhammad Jamal Matloob | May 20, 2025 | #Productivity</p>
-                        <p>Strategies and techniques to approach complex coding challenges, debug efficiently, and write cleaner, more maintainable code. Learn how to break down problems and find optimal solutions.</p>
-                        <a href="https://www.linkedin.com/in/muhammad-jamal-matloob-326299328" target="_blank" class="linkedin-button">
-                            <i class="fab fa-linkedin"></i> View on LinkedIn
+                        <p>Strategies and techniques to approach complex coding challenges, debug efficiently, and write
+                            cleaner, more maintainable code. Learn how to break down problems and find optimal
+                            solutions.</p>
+                        <a href="https://www.linkedin.com/in/muhammad-jamal-matloob-326299328" target="_blank"
+                            class="linkedin-button">
+                            <font color="white"><i class="fab fa-linkedin"></i> View on LinkedIn</font>
                         </a>
                     </div>
                 </div>
 
                 <!-- Blog Post Card 4: Getting Started with Cloud Computing -->
                 <div class="blog-post-card">
-                    <img src="https://placehold.co/600x300/444444/FFFFFF?text=AWS+Basics" alt="Getting Started with Cloud Computing: AWS Basics" onerror="this.src='https://placehold.co/600x300/444444/FFFFFF?text=Blog+Post+3+Image';" />
+                    <img src="https://placehold.co/600x300/444444/FFFFFF?text=AWS+Basics"
+                        alt="Getting Started with Cloud Computing: AWS Basics"
+                        onerror="this.src='https://placehold.co/600x300/444444/FFFFFF?text=Blog+Post+3+Image';" />
                     <div class="blog-content">
                         <h3>Getting Started with Cloud Computing: AWS Basics</h3>
                         <p class="post-meta">By Muhammad Jamal Matloob | April 10, 2025 | #Cloud</p>
-                        <p>An introductory guide to Amazon Web Services (AWS) for beginners, covering essential services like EC2, S3, and Lambda, and how they can be used to build scalable applications.</p>
-                        <a href="https://www.linkedin.com/in/muhammad-jamal-matloob-326299328" target="_blank" class="linkedin-button">
-                            <i class="fab fa-linkedin"></i> View on LinkedIn
+                        <p>An introductory guide to Amazon Web Services (AWS) for beginners, covering essential services
+                            like EC2, S3, and Lambda, and how they can be used to build scalable applications.</p>
+                        <a href="https://www.linkedin.com/in/muhammad-jamal-matloob-326299328" target="_blank"
+                            class="linkedin-button">
+                            <font color="white"><i class="fab fa-linkedin"></i> View on LinkedIn</font>
                         </a>
                     </div>
                 </div>
@@ -527,8 +714,10 @@
             <a href="https://wa.me/923224122066" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
             <a href="https://www.linkedin.com/in/muhammad-jamal-matloob-326299328" target="_blank"
                 class="social-icon"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.instagram.com/jamalmatloob2514/?hl=en" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61564985437037&locale=en_GB" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/jamalmatloob2514/?hl=en" target="_blank" class="social-icon"><i
+                    class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61564985437037&locale=en_GB" target="_blank"
+                class="social-icon"><i class="fab fa-facebook"></i></a>
         </div>
         <p>Contact: +92 322 4122 066</p>
         <p>&copy; 2025 Muhammad Jamal Matloob. All rights reserved.</p>
@@ -645,4 +834,5 @@
         });
     </script>
 </body>
+
 </html>

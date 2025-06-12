@@ -5,60 +5,288 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me - Muhammad Jamal Matloob</title>
     <link rel="icon" href="Logo.ico" type="image/x-icon">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* General Body Styles */
         body {
-            font-family: 'Inter', sans-serif; /* Modern font */
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
             transition: background-color 0.4s ease, color 0.4s ease;
         }
 
-        /* Dark Theme */
+        /* --- DARK THEME (Accent: Red) --- */
         body.dark-theme {
-            background-color: #1a1a1a; /* Dark Black */
-            color: #e0e0e0; /* Light Gray */
-        }
-
-        body.dark-theme a {
+            background-color: #1a1a1a;
             color: #e0e0e0;
         }
 
-        /* Light Theme */
+        body.dark-theme a {
+            color: #e74c3c;
+        }
+
+        body.dark-theme a:hover {
+            color: #c0392b;
+        }
+
+        body.dark-theme header {
+            background-color: #222;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        body.dark-theme .logo a {
+            color: #e74c3c;
+        }
+
+        body.dark-theme .nav-links a {
+            color: #e0e0e0;
+        }
+
+        body.dark-theme .nav-links a:hover {
+            color: #e74c3c;
+        }
+
+        body.dark-theme .nav-links a::after {
+            background-color: #e74c3c;
+        }
+
+        body.dark-theme .menu-toggle,
+        body.dark-theme .theme-toggle {
+            color: #e0e0e0;
+        }
+
+        body.dark-theme .menu-toggle:hover,
+        body.dark-theme .theme-toggle:hover {
+            color: #e74c3c;
+        }
+        
+        body.dark-theme .contact-section {
+            background-color: #2a2a2a;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        body.dark-theme .contact-section h2,
+        body.dark-theme .contact-form-container h3,
+        body.dark-theme .info-item i {
+            color: #e74c3c;
+        }
+
+        body.dark-theme .contact-section h2::after {
+             background-color: #e74c3c;
+        }
+
+        body.dark-theme .info-item {
+            background-color: #333;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        body.dark-theme .info-item:hover {
+            background-color: #3e3e3e;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        body.dark-theme .info-item h3,
+        body.dark-theme .form-group label {
+            color: #e0e0e0;
+        }
+
+        body.dark-theme .info-item p {
+            color: #bbb;
+        }
+
+        body.dark-theme .contact-form-container {
+             background-color: #333;
+             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        body.dark-theme .form-group input,
+        body.dark-theme .form-group textarea {
+            border: 1px solid #555;
+            background-color: #444;
+            color: #e0e0e0;
+        }
+
+        body.dark-theme .form-group input:focus,
+        body.dark-theme .form-group textarea:focus {
+            border-color: #e74c3c;
+            box-shadow: 0 0 8px rgba(231, 76, 60, 0.5);
+        }
+
+        body.dark-theme .submit-btn {
+             background-color: #e74c3c;
+             color: #fff;
+        }
+
+        body.dark-theme .submit-btn:hover {
+            background-color: #c0392b;
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.5);
+        }
+
+        body.dark-theme footer {
+            background-color: #222;
+            color: #e0e0e0;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        body.dark-theme footer p {
+            color: #bbb;
+        }
+
+        body.dark-theme .social-icon {
+            color: #e0e0e0;
+        }
+        
+        body.dark-theme .social-icon:hover {
+             color: #e74c3c;
+        }
+
+        /* --- LIGHT THEME (Accent: Blue) --- */
         body.light-theme {
-            background-color: #f4f4f4; /* Light Gray */
-            color: #333; /* Dark Gray */
+            background-color: #f8f9fa;
+            color: #212529;
         }
 
         body.light-theme a {
+            color: #3498db;
+        }
+
+        body.light-theme a:hover {
+            color: #2980b9;
+        }
+
+        body.light-theme header {
+            background-color: #2c3e50;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-theme .logo a {
+            color: #3498db;
+        }
+
+        body.light-theme .nav-links a {
+            color: #ecf0f1;
+        }
+
+        body.light-theme .nav-links a:hover {
+            color: #3498db;
+        }
+
+        body.light-theme .nav-links a::after {
+            background-color: #3498db;
+        }
+
+        body.light-theme .menu-toggle,
+        body.light-theme .theme-toggle {
+            color: #ecf0f1;
+        }
+
+        body.light-theme .menu-toggle:hover,
+        body.light-theme .theme-toggle:hover {
+            color: #3498db;
+        }
+
+        body.light-theme .contact-section {
+            background-color: #ffffff;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        body.light-theme .contact-section h2,
+        body.light-theme .contact-form-container h3,
+        body.light-theme .info-item i {
+            color: #3498db;
+        }
+
+        body.light-theme .contact-section h2::after {
+            background-color: #3498db;
+        }
+        
+        body.light-theme .info-item {
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+        }
+
+        body.light-theme .info-item:hover {
+            border-color: #3498db;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            background-color: #e9ecef;
+        }
+
+        body.light-theme .info-item h3,
+        body.light-theme .form-group label {
+            color: #333;
+        }
+        
+        body.light-theme .info-item p {
+            color: #555;
+        }
+        
+        body.light-theme .contact-form-container {
+             background-color: #f1f3f5;
+             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.07);
+        }
+        
+        body.light-theme .form-group input,
+        body.light-theme .form-group textarea {
+            border: 1px solid #ccc;
+            background-color: #fff;
             color: #333;
         }
 
-        /* Header Styles - Consistent with Home Page */
+        body.light-theme .form-group input:focus,
+        body.light-theme .form-group textarea:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+        }
+
+        body.light-theme .submit-btn {
+             background-color: #3498db;
+             color: #fff;
+        }
+
+        body.light-theme .submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        body.light-theme footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-theme footer p {
+            color: #bdc3c7;
+        }
+
+        body.light-theme .social-icon {
+            color: #ecf0f1;
+        }
+
+        body.light-theme .social-icon:hover {
+            color: #3498db;
+        }
+
+
+        /* --- BASE HEADER & NAV STYLES --- */
         header {
-            background-color: #222; /* Darker Gray */
-            padding: 1rem 0;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            padding: 0;
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
             transition: background-color 0.4s ease, box-shadow 0.4s ease;
-        }
-
-        body.light-theme header {
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
@@ -68,12 +296,7 @@
             font-size: 2rem;
             font-weight: bold;
             text-decoration: none;
-            color: #e74c3c; /* Red */
             transition: color 0.3s ease;
-        }
-
-        body.light-theme .logo a {
-            color: #c0392b; /* Darker red for light theme */
         }
 
         .nav-links {
@@ -93,19 +316,14 @@
             font-size: 1.1rem;
             position: relative;
             padding-bottom: 5px;
-            color: #e0e0e0;
-        }
-
-        body.light-theme .nav-links a {
-            color: #555;
+            transition: color 0.3s ease;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
             width: 0;
-            height: 3px; /* Thicker underline */
-            background-color: #e74c3c;
+            height: 3px;
             bottom: 0;
             left: 0;
             transition: width 0.3s ease-in-out;
@@ -115,84 +333,50 @@
             width: 100%;
         }
 
-        .nav-links a:hover {
-            color: #e74c3c;
-        }
-
-        /* Mobile Menu Toggle - Consistent with Home Page */
         .menu-toggle {
-            display: none; /* Hidden by default */
+            display: none;
             background: none;
             border: none;
             font-size: 1.8rem;
-            color: #e0e0e0;
             cursor: pointer;
             transition: color 0.3s ease;
         }
 
-        body.light-theme .menu-toggle {
-            color: #333;
-        }
-
-        .menu-toggle:hover {
-            color: #e74c3c;
-        }
-
-        /* Theme Toggle Button - Consistent with Home Page */
         .theme-toggle {
             background: none;
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: #e0e0e0;
             transition: color 0.3s ease;
-            margin-left: 20px; /* Space from nav links */
+            margin-left: 20px;
         }
-
-        body.light-theme .theme-toggle {
-            color: #333;
-        }
-
-        .theme-toggle:hover {
-            color: #e74c3c;
-        }
-
-        /* Main Content Styles */
+        
+        /* --- MAIN CONTENT & CONTACT SECTION --- */
         main {
-            padding-top: 100px; /* Adjust for fixed header */
+            padding-top: 100px;
         }
 
-        /* Contact Section - Consistent with Home Page Sections */
         .contact-section {
             padding: 80px 20px;
             max-width: 900px;
-            margin: 100px auto 40px auto; /* Adjust margin-top for fixed header */
+            margin: 100px auto 40px auto;
             text-align: center;
-            background-color: #2a2a2a; /* Dark Gray */
-            border-radius: 12px; /* Consistent rounded corners */
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Consistent shadow */
+            border-radius: 12px;
             transition: background-color 0.4s ease, box-shadow 0.4s ease;
         }
 
-        body.light-theme .contact-section {
-            background-color: #fff;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-        }
-
         .contact-section h2 {
-            font-size: 2.8rem; /* Consistent heading size */
+            font-size: 2.8rem;
             margin-bottom: 40px;
-            color: #e74c3c; /* Red */
             position: relative;
-            animation: slideInDown 1s ease-out; /* Add animation */
+            animation: slideInDown 1s ease-out;
         }
 
         .contact-section h2::after {
             content: '';
             position: absolute;
-            width: 100px; /* Longer underline */
-            height: 4px; /* Thicker underline */
-            background-color: #e74c3c;
+            width: 100px;
+            height: 4px;
             bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
@@ -208,75 +392,43 @@
         }
 
         .info-item {
-            background-color: #333;
             padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-            flex: 1 1 calc(33% - 40px); /* Approx 3 items per row */
+            border-radius: 10px;
+            flex: 1 1 calc(33% - 40px);
             min-width: 250px;
-            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow to transition */
-        }
-
-        body.light-theme .info-item {
-            background-color: #eee;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         .info-item:hover {
             transform: translateY(-10px);
-            background-color: #444;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6); /* More pronounced shadow on hover */
-        }
-
-        body.light-theme .info-item:hover {
-            background-color: #ddd;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
         .info-item i {
-            font-size: 3.5rem; /* Slightly larger icon */
-            color: #e74c3c;
+            font-size: 3.5rem;
             margin-bottom: 15px;
         }
 
         .info-item h3 {
             font-size: 1.4rem;
             margin-bottom: 10px;
-            color: #e0e0e0;
-        }
-
-        body.light-theme .info-item h3 {
-            color: #333;
         }
 
         .info-item p {
             font-size: 1.1rem;
             margin: 0;
-            color: #bbb;
         }
-
-        body.light-theme .info-item p {
-            color: #555;
-        }
-
+        
+        /* --- CONTACT FORM --- */
         .contact-form-container {
-            background-color: #333;
             padding: 40px;
             border-radius: 10px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
             max-width: 700px;
             margin: 0 auto;
             text-align: left;
         }
 
-        body.light-theme .contact-form-container {
-            background-color: #eee;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-        }
-
         .contact-form-container h3 {
             font-size: 2rem;
-            color: #e74c3c;
             margin-bottom: 30px;
             text-align: center;
         }
@@ -289,38 +441,16 @@
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
-            color: #e0e0e0;
-        }
-
-        body.light-theme .form-group label {
-            color: #333;
         }
 
         .form-group input[type="text"],
         .form-group input[type="email"],
         .form-group textarea {
-            width: calc(100% - 24px); /* Adjusted for 12px padding on each side */
+            width: calc(100% - 24px);
             padding: 12px;
-            border: 1px solid #555;
             border-radius: 5px;
-            background-color: #444;
-            color: #e0e0e0;
             font-size: 1rem;
-            transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow to transition */
-        }
-
-        body.light-theme .form-group input,
-        body.light-theme .form-group textarea {
-            border: 1px solid #ccc;
-            background-color: #fff;
-            color: #333;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: #e74c3c;
-            outline: none;
-            box-shadow: 0 0 8px rgba(231, 76, 60, 0.5);
+            transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .form-group textarea {
@@ -332,37 +462,23 @@
             display: block;
             width: 100%;
             padding: 15px;
-            background-color: #e74c3c;
-            color: #fff;
             border: none;
             border-radius: 5px;
             font-size: 1.2rem;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow to transition */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .submit-btn:hover {
-            background-color: #c0392b;
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.5); /* More pronounced shadow on hover */
         }
-
-        /* Footer Styles - Consistent with Home Page */
+        
+        /* --- FOOTER --- */
         footer {
-            background-color: #222;
-            color: #e0e0e0;
             text-align: center;
             padding: 30px 20px;
-            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.4);
             transition: background-color 0.4s ease, box-shadow 0.4s ease;
-        }
-
-        body.light-theme footer {
-            background-color: #fff;
-            color: #333;
-            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .social-links {
@@ -370,78 +486,62 @@
         }
 
         .social-icon {
-            font-size: 2.2rem; /* Larger social icons */
-            color: #e0e0e0;
+            font-size: 2.2rem;
             margin: 0 15px;
+            text-decoration: none;
             transition: color 0.3s ease, transform 0.3s ease;
         }
 
-        body.light-theme .social-icon {
-            color: #333;
-        }
-
         .social-icon:hover {
-            color: #e74c3c;
-            transform: translateY(-5px); /* More pronounced hover */
+            transform: translateY(-5px);
         }
 
         footer p {
             margin: 5px 0;
-            color: #bbb;
-        }
-        body.light-theme footer p {
-            color: #666;
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideInUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
+        /* --- ANIMATIONS --- */
         @keyframes slideInDown {
             from { transform: translateY(-50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
 
-        @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
-        /* Responsive Design */
+        /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 768px) {
             .nav-links {
-                display: none; /* Hide desktop nav links */
+                display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 70px; /* Below header */
+                top: 70px;
                 left: 0;
                 width: 100%;
-                background-color: #222; /* Matches header background */
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
                 padding: 20px 0;
                 border-bottom-left-radius: 12px;
                 border-bottom-right-radius: 12px;
-                animation: slideDown 0.3s ease-out forwards; /* Slide-down animation */
+                animation: slideDown .3s ease-out forwards;
+            }
+
+            body.dark-theme .nav-links {
+                background-color: #222;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, .4);
             }
 
             body.light-theme .nav-links {
-                background-color: #fff;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                background-color: #2c3e50;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, .1);
             }
 
             .nav-links.active {
-                display: flex; /* Show when active */
+                display: flex;
             }
 
             .nav-links li {
-                margin: 15px 0; /* Vertical spacing for menu items */
+                margin: 15px 0;
             }
 
             .nav-links a {
@@ -452,51 +552,39 @@
             }
 
             .menu-toggle {
-                display: block; /* Show hamburger icon on mobile/tablet */
+                display: block;
             }
 
-            /* Adjust header for mobile */
             header nav {
-                justify-content: space-between; /* Space out logo and toggle */
+                justify-content: space-between;
             }
 
             .theme-toggle {
-                margin-left: 0; /* Remove extra margin on mobile */
+                margin-left: 0;
             }
 
             .contact-section {
-                padding: 60px 15px; /* Adjusted padding for smaller screens */
-                margin-top: 80px; /* Adjusted top margin for fixed header */
+                padding: 60px 15px;
+                margin-top: 80px;
             }
 
             .contact-section h2 {
-                font-size: 2.2rem; /* Smaller heading on mobile */
+                font-size: 2.2rem;
             }
 
             .contact-info {
-                flex-direction: column; /* Stack contact info items vertically */
+                flex-direction: column;
                 align-items: center;
             }
 
             .info-item {
-                flex: 1 1 90%; /* Take up more width on small screens */
+                flex: 1 1 90%;
                 min-width: unset;
                 width: 100%;
             }
 
             .contact-form-container {
-                padding: 30px; /* Adjusted padding for form on smaller screens */
-            }
-
-            .form-group input[type="text"],
-            .form-group input[type="email"],
-            .form-group textarea {
-                width: calc(100% - 20px); /* Adjust for padding on smaller screens */
-            }
-
-            @keyframes slideDown {
-                from { transform: translateY(-100%); opacity: 0; }
-                to { transform: translateY(0); opacity: 1; }
+                padding: 30px;
             }
         }
     </style>
@@ -523,7 +611,7 @@
     </header>
 
     <main>
-        <section class="contact-section animate">
+        <section class="contact-section">
             <h2>Get In Touch</h2>
             <div class="contact-info">
                 <div class="info-item">
@@ -634,16 +722,15 @@
             // Close mobile menu when a link is clicked
             navLinks.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
                 });
             });
-
-            // Intersection Observer for animations on scroll
-            const contactSection = document.querySelector('.contact-section');
-            const infoItems = document.querySelectorAll('.info-item');
-            const contactFormContainer = document.querySelector('.contact-form-container');
-
+            
+             // Intersection Observer for animations on scroll
+            const animatedElements = document.querySelectorAll('.info-item, .contact-form-container');
             const options = {
                 threshold: 0.1
             };
@@ -651,49 +738,21 @@
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('animate');
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
                         observer.unobserve(entry.target);
                     }
                 });
             }, options);
 
-            // Observe the main contact section
-            observer.observe(contactSection);
-
-            // Staggered animation for info items
-            infoItems.forEach((item, index) => {
-                item.style.transitionDelay = `${index * 0.1}s`; // Staggered delay
-                observer.observe(item); // Observe individual info items
+            animatedElements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                el.style.transitionDelay = `${index * 0.1}s`;
+                observer.observe(el);
             });
 
-            // Observe the contact form container
-            contactFormContainer.style.transitionDelay = `${infoItems.length * 0.1 + 0.1}s`; // Delay after info items
-            observer.observe(contactFormContainer);
-
-            // Dynamically add animation classes to the stylesheet
-            const styleSheet = document.styleSheets[0];
-
-            styleSheet.insertRule(`
-                .contact-section.animate {
-                    animation: fadeIn 1s ease-out forwards;
-                }
-            `, styleSheet.cssRules.length);
-
-            styleSheet.insertRule(`
-                .info-item, .contact-form-container {
-                    opacity: 0;
-                    transform: translateY(20px);
-                    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-                }
-            `, styleSheet.cssRules.length);
-
-            styleSheet.insertRule(`
-                .contact-section.animate .info-item,
-                .contact-section.animate .contact-form-container {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            `, styleSheet.cssRules.length);
 
             // Form submission handling (no alerts)
             document.getElementById('contactForm').addEventListener('submit', function(event) {
