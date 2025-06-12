@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Blog - Muhammad Jamal Matloob</title>
     <link rel="icon" href="Logo.ico" type="image/x-icon">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* General Body Styles */
@@ -19,7 +18,7 @@
         }
 
         /* =================================== */
-        /* DARK THEME              */
+        /* DARK THEME                          */
         /* =================================== */
         body.dark-theme {
             background-color: #1a1a1a;
@@ -141,7 +140,7 @@
 
 
         /* =================================== */
-        /* LIGHT THEME             */
+        /* LIGHT THEME                         */
         /* =================================== */
         body.light-theme {
             background-color: #f8f9fa;
@@ -264,7 +263,7 @@
 
 
         /* =================================== */
-        /* BASE & SHARED STYLES      */
+        /* BASE & SHARED STYLES                */
         /* =================================== */
 
         /* --- HEADER & NAV --- */
@@ -410,11 +409,12 @@
             transform: translateY(-10px);
         }
 
+        /* --- THIS IS THE MODIFIED BLOCK --- */
         .project-card img,
         .blog-post-card img {
             width: 100%;
-            height: 250px;
-            object-fit: cover;
+            /* height: 250px; <-- REMOVED */
+            /* object-fit: cover; <-- REMOVED */
             border-bottom: 3px solid;
             display: block;
         }
@@ -630,57 +630,133 @@
             <h2>My Latest Thoughts & Updates</h2>
             <div class="blog-grid">
 
-                <!-- Blog Post Card 1: Interactive Data Dashboard -->
-                <div class="blog-post-card">
-                    <img src="https://placehold.co/600x300/e74c3c/FFFFFF?text=Dashboard+Project"
-                        alt="Interactive Data Dashboard"
-                        onerror="this.src='https://placehold.co/600x300/e74c3c/FFFFFF?text=Dashboard+Mockup';" />
-                    <div class="blog-content">
-                        <h3>Interactive Data Dashboard Completed!</h3>
-                        <p class="post-meta">By Muhammad Jamal Matloob | June 5, 2025 | #DataScience</p>
-                        <p>
-                            Thrilled to announce the completion of my latest project: an **Interactive Data Dashboard**!
-                            🎉 This dashboard visualizes complex sales metrics in real-time, offering actionable
-                            insights at a glance. Built with **Python (Pandas, Dash)** and **JavaScript (D3.js)** for
-                            dynamic charting. It was a challenging but rewarding experience, pushing my skills in both
-                            backend data processing and frontend visualization.
-                        </p>
-                        <a href="https://www.linkedin.com/in/muhammad-jamal-matloob-326299328" target="_blank"
-                            class="linkedin-button">
-                            <font color="white"><i class="fab fa-linkedin"></i> View on LinkedIn</font>
-                        </a>
-                    </div>
-                </div>
+                
 
-                <!-- Blog Post Card 2: The Evolution of Frontend Frameworks -->
                 <div class="blog-post-card">
-                    <img src="https://placehold.co/600x300/222222/FFFFFF?text=Frontend+Frameworks"
-                        alt="The Evolution of Frontend Frameworks"
+                    <img src="https://media.licdn.com/dms/image/v2/D4D22AQF0GYUIdabm8w/feedshare-shrink_2048_1536/B4DZUAWM33HYAw-/0/1739467599209?e=1752710400&v=beta&t=5T7pzhtMCpGExgtmOOH-vyQxi47CYOXrQkxUMH939kk"
+                        alt="AI Web Hackathon"
                         onerror="this.src='https://placehold.co/600x300/222222/FFFFFF?text=Blog+Post+1+Image';" />
                     <div class="blog-content">
-                        <h3>The Evolution of Frontend Frameworks</h3>
-                        <p class="post-meta">By Muhammad Jamal Matloob | June 1, 2025 | #WebDev</p>
-                        <p>A look back at how frontend development has transformed with the rise of React, Angular, and
-                            Vue, and what's next for the ecosystem and future trends in web development technologies.
+                        <h3>AI Web Hackthon Competition</h3>
+                        <p class="post-meta">By Muhammad Jamal Matloob | June 1, 2025 | #WebDev #ITEC #Department of Computer Science, UET Lahore #University of Engineering and Technology, Lahore</p>
+                        <p>🎉 Excited to share that we are runner-up in AI Web Hackathon competition of ITEC. It was due to team collaboration and hard work of our team. <br><br>
+
+📍Our team members:<br><br>
+
+• Muhammad Hassan Raza<br>
+• Muhammad Umair <br>
+• Muhammad Jamal Matloob <br>
+• Affan Asim<br><br>
+
+💥We were given a case study and we had 24 hours for it.We had to made a website for kitchen management system. We free to use any AI tool.We have to make fully functioning website with an attractive frontend, backend and a proper connection with database. <br><br>
+
+🔹We used: <br><br>
+
+• Html, Css and JavaScript (for designing frontend) <br>
+• Flask - A Python library (for backend) <br>
+• GCP - Google Cloud Platform (for database) <br><br>
+
+🔹Our website contains:<br><br>
+
+• Home Page - contains stats of website users, notifications and kitchen ingredients <br>
+• Inventory Page - allows users to add or remove an ingredient and update record in database inventory <br>
+• Recipes Suggestions Page - suggests recipes according to available ingredients in the inventory (Used Spoonacular API for this) <br>
+
+
                         </p>
-                        <a href="https://www.linkedin.com/in/muhammad-jamal-matloob-326299328" target="_blank"
+                        <a href="https://www.linkedin.com/posts/muhammad-jamal-matloob-326299328_excited-to-share-that-we-are-runner-up-activity-7295855927843315713-4W2i?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFKfr44B-PyQIfDRjUn_osRUc3COrG9RABg" target="_blank"
                             class="linkedin-button">
-                            <<font color="white"><i class="fab fa-linkedin"></i> View on LinkedIn</font>
+                            <font color="white"><i class="fab fa-linkedin"></i> View on LinkedIn</font>
                         </a>
                     </div>
                 </div>
 
-                <!-- Blog Post Card 3: Tips for Effective Problem Solving -->
                 <div class="blog-post-card">
-                    <img src="https://placehold.co/600x300/333333/FFFFFF?text=Problem+Solving+Tips"
-                        alt="Tips for Effective Problem Solving in Programming"
+                    <img src="https://media.licdn.com/dms/image/v2/D4D22AQHfUAfs584szw/feedshare-shrink_1280/B4DZUFOmNaHIAk-/0/1739549469620?e=1752710400&v=beta&t=UORzTNwlVGte3Xcjv0VQjH77jDu0YE6PO5LOYjuWSqk"
+                        alt="🚀Universe of AI 🌎"
                         onerror="this.src='https://placehold.co/600x300/333333/FFFFFF?text=Blog+Post+2+Image';" />
                     <div class="blog-content">
-                        <h3>Tips for Effective Problem Solving in Programming</h3>
-                        <p class="post-meta">By Muhammad Jamal Matloob | May 20, 2025 | #Productivity</p>
-                        <p>Strategies and techniques to approach complex coding challenges, debug efficiently, and write
-                            cleaner, more maintainable code. Learn how to break down problems and find optimal
-                            solutions.</p>
+                        <h3>🚀Universe of AI 🌎</h3>
+                        <p class="post-meta">By Muhammad Jamal Matloob | May 20, 2025 | #ArtificialIntelligence #MachineLearning #NeuralNetworks #DeepLearning #GenerativeAI</p>
+                        <p> 
+
+1️⃣Artificial Intelligence (AI) <br><br>
+
+Artificial Intelligence refers to the development of computer systems that can perform tasks that typically require human intelligence, such as:<br><br>
+
+- Learning<br>
+- Reasoning<br>
+- Problem-solving<br>
+- Perception<br>
+- Language understanding<br><br>
+
+AI systems use algorithms and data to make decisions, classify objects, and generate insights.<br><br>
+
+2️⃣Machine Learning (ML)<br><br>
+
+Machine Learning is a subset of Artificial Intelligence that involves training algorithms to learn from data and make predictions or decisions without being explicitly programmed.<br><br>
+
+Machine Learning algorithms can:<br><br>
+
+- Learn from data<br>
+- Improve performance over time<br>
+- Make predictions or decisions<br><br>
+
+Machine Learning is used in applications such as:<br><br>
+
+- Image recognition<br>
+- Natural Language Processing (NLP)<br>
+- Predictive analytics<br><br>
+
+3️⃣Neural Networks<br><br>
+
+Neural Networks are a type of Machine Learning algorithm inspired by the structure and function of the human brain.<br><br>
+A Neural Network consists of:<br><br>
+
+- Layers of interconnected nodes (neurons)<br>
+- Each node applies a non-linear transformation to the input data<br>
+- The output from each node is transmitted to other nodes<br><br>
+
+Neural Networks can:<br><br>
+
+- Learn complex patterns in data<br>
+- Make predictions or decisions<br>
+- Be trained using large datasets<br><br>
+
+4️⃣Deep Learning<br><br>
+
+Deep Learning is a subset of Machine Learning that involves the use of Neural Networks with multiple layers to learn complex patterns in data.<br><br>
+
+Deep Learning algorithms can:<br><br>
+
+- Learn hierarchical representations of data<br>
+- Make accurate predictions or decisions<br>
+- Be trained using large datasets<br><br>
+
+Deep Learning is used in applications such as:<br><br>
+
+- Image recognition<br>
+- Natural Language Processing (NLP)<br>
+- Speech recognition<br><br>
+
+5️⃣Generative AI<br><br>
+
+Generative AI refers to a type of Artificial Intelligence that involves generating new, synthetic data that resembles existing data.<br><br>
+
+Generative AI algorithms can:<br><br>
+
+- Generate new images, videos, or music<br>
+- Create synthetic data for training Machine Learning models<br>
+- Be used for data augmentation, style transfer, or text-to-image synthesis<br><br>
+
+Generative AI is used in applications such as:<br><br>
+
+- Art and design<br>
+- Data augmentation<br>
+- Robotics and computer vision<br>
+
+ 
+</p>
                         <a href="https://www.linkedin.com/in/muhammad-jamal-matloob-326299328" target="_blank"
                             class="linkedin-button">
                             <font color="white"><i class="fab fa-linkedin"></i> View on LinkedIn</font>
@@ -688,22 +764,7 @@
                     </div>
                 </div>
 
-                <!-- Blog Post Card 4: Getting Started with Cloud Computing -->
-                <div class="blog-post-card">
-                    <img src="https://placehold.co/600x300/444444/FFFFFF?text=AWS+Basics"
-                        alt="Getting Started with Cloud Computing: AWS Basics"
-                        onerror="this.src='https://placehold.co/600x300/444444/FFFFFF?text=Blog+Post+3+Image';" />
-                    <div class="blog-content">
-                        <h3>Getting Started with Cloud Computing: AWS Basics</h3>
-                        <p class="post-meta">By Muhammad Jamal Matloob | April 10, 2025 | #Cloud</p>
-                        <p>An introductory guide to Amazon Web Services (AWS) for beginners, covering essential services
-                            like EC2, S3, and Lambda, and how they can be used to build scalable applications.</p>
-                        <a href="https://www.linkedin.com/in/muhammad-jamal-matloob-326299328" target="_blank"
-                            class="linkedin-button">
-                            <font color="white"><i class="fab fa-linkedin"></i> View on LinkedIn</font>
-                        </a>
-                    </div>
-                </div>
+                
 
             </div>
         </section>
